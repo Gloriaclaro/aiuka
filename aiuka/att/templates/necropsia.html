@@ -1,0 +1,1352 @@
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>AIUKÁ FORMS</title>
+</head>
+<div class="wrapper">
+    <div class="sidebar">
+        <h3>
+            <img src="{{url_for('static', filename='logo.jpeg')}}" style="margin-top:7px" width="199" height="200"/>
+        </h3>
+        <ul>
+            <li><a href="http://127.0.0.1:5000/"><i class="fas fa-project-diagram"></i>Buscar</a></li>
+            <li><a href="http://127.0.0.1:5000/reabilitacao"><i class="fas fa-address-card"></i>Reabilitação</a></li>
+            <li><a href="http://127.0.0.1:5000/necropsia"><i class="fas fa-address-card"></i>Necropsia</a></li>
+        </ul>
+    </div>
+    <div class="main_content">
+        <p class="title" align="center">Necropsia</p>
+        </table>
+        <form method="post">
+            <table class="re">
+                <tr>
+                    <td class="table_padding" rowspan="4">
+                        <p class="table_name">Identificação</p>
+                    </td>
+                    <td>
+                        <label>Número de registro:</label>
+                        <input type="text" name="re" placeholder="<Número de registro>" required>
+                    </td>
+                    <td>
+                        <label> Identificação temporária:</label>
+                        <input type="text" name="idtemp" placeholder="<Identificação temporária>">
+                    </td>
+                    <td>
+                        <label> Identificação permanente:</label>
+                        <input type="text" name="idperm" placeholder="<Identificação permanente>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Incidente:</label>
+                        <input type="text" name="incidente" placeholder="<Incidente>" required>
+                    </td>
+                    <td>
+                        <label>Espécie:</label>
+                        <input type="text" name="especie" placeholder="<Espécie>" required>
+                    </td>
+                    <td>
+                        <label>Nome popular:</label>
+                        <input type="text" name="nome_pop" placeholder="<Nome popular>" required>
+                    </td>
+                </tr>
+            </table>
+        <table class="hist">
+                <tr>
+                    <td class="table_padding" rowspan="5">
+                        <p class="table_name">Histórico</p>
+                    </td>
+                    <td colspan="2">
+                        <label>Animal interno: <br> Quem encontrou ou eutanasiou</label>
+                        <input type="text" name="ani_inter" placeholder="<Animal interno>">
+                    </td>
+                    <td>
+                        <label>Data e hora de óbito</label>
+                        <input type="text" name="data_obito" placeholder="<Data>" required>
+                    </td>
+                </tr>
+            <tr>
+                <td>
+                    <label>Animal externo: <br> Quem encontrou e entregou para a aiuka</label>
+                    <input type="text" name="ani_exter" placeholder="<Animal externo>">
+                </td>
+                <td>
+                    <label>BO/CPF/RG:</label><br>
+                    <input type="text" size="35px" name="bo_cpf_rg" placeholder="<BO, CPF ou RG>">
+                </td>
+                <td>
+                    <label>Endereço/Telefone:</label><br>
+                    <input type="text" size="50px" name="cep_tel" placeholder="<Endereço/telefone>">
+                </td>
+            </tr>
+            <tr>
+                <td style="position:relative" colspan="2">
+                    <label>Local e/ou GPS:</label>
+                    <input type="text" name="local" placeholder="<Local e/ou GPS>" required>
+                </td>
+                <td>
+                    <p>Armazenamento da carcaça: <br><br>
+                    </p>
+                    <input type="radio" id="temp_ambiente" name="arm_carcaca" value="temp_ambiente" required>
+                    <label class="cb" for="temp_ambiente"> Temperatura ambiente</label><br>
+                    <input type="radio" id="gelo" name="arm_carcaca" value="gelo">
+                    <label class="cb" for="gelo"> Gelo ou geladeira</label><br>
+                    <input type="radio" id="congelador" name="arm_carcaca" value="congelador">
+                    <label class="cb" for="congelador">Congelador</label><br><br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <p>Contexto da morte:
+                    <input type="radio" id="carcaca_praia" name="contexto_morte" value="carcaca_praia" required>
+                    <label class="cb" for="carcaca_praia"> Carcaça de praia</label>
+                    <input type="radio" id="cap_ad" name="contexto_morte" value="cap_ad">
+                    <label class="cb" for="cap_ad"> Óbito entre a capitura e a admissão</label>
+                    <input type="radio" id="reab" name="contexto_morte" value="reab">
+                    <label class="cb" for="reab">Óbito durante a reabilitação</label>
+                    <input type="radio" id="eutanasia" name="contexto_morte" value="eutanasia">
+                    <label class="cb" for="eutanasia">Eutanásia</label><br><br></p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <label>Observações:</label>
+                    <textarea rows="4" cols="50" name="obs_hist" placeholder="Observações..." required></textarea>
+                </td>
+            </tr>
+        </table>
+        <table class="exame_ext">
+            <tr>
+                <td class="table_padding" rowspan="6" style="padding:8px">
+                    <p class="table_name">Exame externo</p>
+                </td>
+                <td>
+                    <label>Necropsista:</label>
+                    <input type="text" name="necropsista" placeholder="<Necropsista>" required>
+                </td>
+                <td>
+                    <label>Data e hora de necropsia</label>
+                    <input type="text" name="data_necropsia" placeholder="<Data>" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Grupo etário:<br><br>
+                        <input type="radio" id="filhote" name="g_et" value="Neonato ou filhote" required>
+                        <label class="cb" for="filhote"> Neonato ou filhote</label>
+                        <input type="radio" id="juvenil" name="g_et" value="Juvenil ou Sub-adulto">
+                        <label class="cb" for="juvenil"> Juvenil ou Sub-adulto</label>
+                        <input type="radio" id="adulto" name="g_et" value="adulto">
+                        <label class="cb" for="adulto">Adulto</label>
+                        <input type="radio" id="senil" name="g_et" value="senil">
+                        <label class="cb" for="senil">Senil</label>
+                    </p>
+                </td>
+                <td>
+                    <label>Peso:</label>
+                    <input type="text" name="peso" placeholder="<Peso>" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Condição corporal: <br><br>
+                        <input type="radio" id="caquetico" name="condi_corp" value="caquetico" required>
+                        <label class="cb" for="caquetico">Caquético</label>
+                        <input type="radio" id="magro" name="condi_corp" value="magro">
+                        <label class="cb" for="magro">Magro</label>
+                        <input class="cb" type="radio" id="bom" name="condi_corp" value="bom">
+                        <label class="cb" for="bom">Bom</label>
+                        <input type="radio" id="otimo" name="condi_corp" value="otimo">
+                        <label class="cb" for="otimo">Ótimo</label>
+                    </p>
+                </td>
+                <td>
+                    <label>Comp. Retilíneo (Répteis e mamíferos):</label>
+                    <input type="text" name="comp_retilineo" placeholder="<Comp. Retilíneo>" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Petrolização (extensão): <br><br>
+                        <input type="radio" id="zero" name="petro_ex" value="zero">
+                        <label class="cb" for="zero">0%</label>
+                        <input type="radio" id="menor_dez" name="petro_ex" value="menor_dez">
+                        <label class="cb" for="menor_dez">&lt 10%</label>
+                        <input type="radio" id="vinte_cinco" name="petro_ex" value="vinte_cinco">
+                        <label class="cb" for="vinte_cinco">25%</label>
+                        <input type="radio" id="cinquenta" name="petro_ex" value="cinquenta">
+                        <label class="cb" for="cinquenta">50%</label>
+                        <input type="radio" id="sete_cinco" name="petro_ex" value="sete_cinco">
+                        <label class="cb" for="sete_cinco">75%</label>
+                        <input type="radio" id="cem" name="petro_ex" value="cem">
+                        <label class="cb" for="cem"> 100% </label>
+                    </p>
+                </td>
+                <td>
+                    <p>Petrolização (profundidade): <br><br>
+                        <input type="radio" id="superficial" name="petro" value="superficial">
+                        <label class="cb" for="superficial">Superficial</label>
+                        <input type="radio" id="media" name="petro" value="media">
+                        <label class="cb" for="media">Média</label>
+                        <input type="radio" id="profunda" name="petro" value="profunda">
+                        <label class="cb" for="profunda">Profunda</label>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Condição da carcaça:<br><br>
+                        <input type="radio" id="carcaca_fresca" name="condi_carcaca" value="Carcaça Fresca" required>
+                        <label class="cb" for="carcaca_fresca">Carcaça fresca</label>
+                        <input type="radio" id="decomposicao_moderada" name="condi_carcaca" value="Decomposição moderada">
+                        <label class="cb" for="decomposicao_moderada"> Decomposição moderada</label>
+                        <input type="radio" id="decomposicao_avancada" name="condi_carcaca" value="Decomposição avançada">
+                        <label class="cb" for="decomposicao_avancada">Decomposição avançada</label><br>
+                        <input type="radio" id="mumificacao_esqueleto" name="condi_carcaca" value="Mumificação ou esqueleto">
+                        <label class="cb" for="mumificacao_esqueleto">Mumificação ou esqueleto</label>
+                    </p>
+                </td>
+                <td>
+                    <p>Ectoparasitase Epibiontes: <br><br>
+                        <input type="radio" id="ausentes" name="ectoparasitase" value="ausentes">
+                        <label class="cb" for="ausentes">Ausentes</label>
+                        <input type="radio" id="ectoparasitas" name="ectoparasitase" value="ectoparasitas">
+                        <label class="cb" for="ectoparasitas">Ectoparasitas (detalhar abaixo)</label>
+                        <input type="radio" id="epibiontes" name="ectoparasitase" value="epibiontes">
+                        <label class="cb" for="profunda">Epibiontes (detalhar abaixo)</label>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label>Observações:</label>
+                    <textarea rows="4" cols="50" name="obs_exame_ext" placeholder="Observações..." required></textarea>
+                </td>
+            </tr>
+        </table>
+        <table class="amostra">
+            <tr>
+                <td class="table_padding" rowspan="19" style="padding:0px">
+                    <p class="table_name"style="padding:0px">Sumário de achados e amostras</p>
+                </td>
+                <td colspan="6">
+                    <p class="title_amostra">Amostras essenciais</p>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <label>Órgão</label>
+                </td>
+                <td rowspan="2">
+                    <label>Normal</label>
+                </td>
+                <td rowspan="2">
+                    <label>Alterações</label>
+                </td>
+                <td colspan="3">
+                    <label>Amostras colhidas</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Formol</label>
+                </td>
+                <td>
+                    <label>Congel.</label>
+                </td>
+                <td>
+                    <label>Fotos</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Traqueia</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_traq" name="traq" value="normal" >
+                    <label for="normal_traq"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_traq" name="traq" value="alterações">
+                    <label for="alteracoes_traq"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_traq" name="formol_traq">
+                    <label for="formol_traq"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_traq" name="congel_traq">
+                    <label for="congel_traq"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_traq" name="fotos_traq">
+                    <label for="fotos_traq"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Sacos aéreos (aves)</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_saco_ae" name="saco_ae" value="normal" >
+                    <label for="normal_saco_ae"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_saco_ae" name="saco_ae" value="alterações">
+                    <label for="alteracoes_saco_ae"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_saco_ae" name="formol_saco_ae">
+                    <label for="formol_saco_ae"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_saco_ae" name="congel_saco_ae">
+                    <label for="congel_saco_ae"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_saco_ae" name="fotos_saco_ae">
+                    <label for="fotos_saco_ae"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Pulmões</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_pulmoes" name="pulmoes" value="normal" >
+                    <label for="normal_pulmoes"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_pulmoes" name="pulmoes" value="alterações">
+                    <label for="alteracoes_pulmoes"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_pulmoes" name="formol_pulmoes">
+                    <label for="formol_pulmoes"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_pulmoes" name="congel_pulmoes">
+                    <label for="congel_pulmoes"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_pulmoes" name="fotos_pulmoes">
+                    <label for="fotos_pulmoes"></label>
+                </td>
+            <tr>
+                <td class="left">
+                    <label>Linf. mediastínico (mamíferos) </label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_linf" name="linf" value="normal" >
+                    <label for="normal_linf"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_linf" name="linf" value="alterações">
+                    <label for="alteracoes_linf"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_linf" name="formol_linf">
+                    <label for="formol_linf"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_linf" name="congel_linf">
+                    <label for="congel_linf"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_linf" name="fotos_linf">
+                    <label for="fotos_linf"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Coração e grandes vasos </label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_coracao" name="coracao" value="normal" >
+                    <label for="normal_coracao"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_coracao" name="coracao" value="alterações">
+                    <label for="alteracoes_coracao"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_coracao" name="formol_coracao">
+                    <label for="formol_coracao"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_coracao" name="congel_coracao">
+                    <label for="congel_coracao"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_coracao" name="fotos_coracao">
+                    <label for="fotos_coracao"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Baço</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_baco" name="baco" value="normal" >
+                    <label for="normal_baco"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_baco" name="baco" value="alterações">
+                    <label for="alteracoes_baco"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_baco" name="formol_baco">
+                    <label for="formol_baco"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_baco" name="congel_baco">
+                    <label for="congel_baco"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_baco" name="fotos_baco">
+                    <label for="fotos_baco"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Pâncreas</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_pancreas" name="pancreas" value="normal" >
+                    <label for="normal_pancreas"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_pancreas" name="pancreas" value="alterações">
+                    <label for="alteracoes_pancreas"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_pancreas" name="formol_pancreas">
+                    <label for="formol_pancreas"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_pancreas" name="congel_pancreas">
+                    <label for="congel_pancreas"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_pancreas" name="fotos_pancreas">
+                    <label for="fotos_pancreas"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Linf. mesentéricos(mamíferos) </label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_linf_mese" name="linf_mese" value="normal" >
+                    <label for="normal_linf_mese"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_linf_mese" name="linf_mese" value="alterações">
+                    <label for="alteracoes_linf_mese"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_linf_mese" name="formol_linf_mese">
+                    <label for="formol_linf_mese"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_linf_mese" name="congel_linf_mese">
+                    <label for="congel_linf_mese"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_linf_mese" name="fotos_linf_mese">
+                    <label for="fotos_linf_mese"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Fígado</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_figado" name="figado" value="normal" >
+                    <label for="normal_figado"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_figado" name="figado" value="alterações">
+                    <label for="alteracoes_figado"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_figado" name="formol_figado">
+                    <label for="formol_figado"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_figado" name="congel_figado">
+                    <label for="congel_figado"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_figado" name="fotos_figado">
+                    <label for="fotos_figado"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Rins</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_rins" name="rins" value="normal" >
+                    <label for="normal_rins"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_rins" name="rins" value="alterações">
+                    <label for="alteracoes_rins"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_rins" name="formol_rins">
+                    <label for="formol_rins"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_rins" name="congel_rins">
+                    <label for="congel_rins"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_rins" name="fotos_rins">
+                    <label for="fotos_rins"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Ovários ou testículos</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_repro" name="repro" value="normal" >
+                    <label for="normal_repro"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_repro" name="repro" value="alterações">
+                    <label for="alteracoes_repro"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_repro" name="formol_repro">
+                    <label for="formol_repro"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_repro" name="congel_repro">
+                    <label for="congel_repro"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_repro" name="fotos_repro">
+                    <label for="fotos_repro"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Adrenais</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_adrenais" name="adrenais" value="normal" >
+                    <label for="normal_adrenais"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_adrenais" name="adrenais" value="alterações">
+                    <label for="alteracoes_adrenais"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_adrenais" name="formol_adrenais">
+                    <label for="formol_adrenais"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_adrenais" name="congel_adrenais">
+                    <label for="congel_adrenais"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_adrenais" name="fotos_adrenais">
+                    <label for="fotos_adrenais"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Esôfago</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_esofago" name="esofago" value="normal" >
+                    <label for="normal_esofago"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_esofago" name="esofago" value="alterações">
+                    <label for="alteracoes_esofago"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_esofago" name="formol_esofago">
+                    <label for="formol_esofago"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_esofago" name="congel_esofago">
+                    <label for="congel_esofago"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_esofago" name="fotos_esofago">
+                    <label for="fotos_esofago"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Estômago</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_estomago" name="estomago" value="normal" >
+                    <label for="normal_estomago"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_estomago" name="estomago" value="alterações">
+                    <label for="alteracoes_estomago"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_estomago" name="formol_estomago">
+                    <label for="formol_estomago"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_estomago" name="congel_estomago">
+                    <label for="congel_estomago"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_estomago" name="fotos_estomago">
+                    <label for="fotos_estomago"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Intestino delgado</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_intestino_del" name="intestino_del" value="normal" >
+                    <label for="normal_intestino_del"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_intestino_del" name="intestino_del" value="alterações">
+                    <label for="alteracoes_intestino_del"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_intestino_del" name="formol_intestino_del">
+                    <label for="formol_intestino_del"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_intestino_del" name="congel_intestino_del">
+                    <label for="congel_intestino_del"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_intestino_del" name="fotos_intestino_del">
+                    <label for="fotos_intestino_del"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Intestino grosso</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_intestino_grosso" name="intestino_grosso" value="normal" >
+                    <label for="normal_intestino_grosso"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_intestino_grosso" name="intestino_grosso" value="alterações" >
+                    <label for="alteracoes_intestino_grosso"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_intestino_grosso" name="formol_intestino_grosso">
+                    <label for="formol_intestino_grosso"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_intestino_grosso" name="congel_intestino_grosso">
+                    <label for="congel_intestino_grosso"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_intestino_grosso" name="fotos_intestino_grosso">
+                    <label for="fotos_intestino_grosso"></label>
+                </td>
+            </tr>
+        </table>
+        <table class="amostra">
+            <tr>
+                <td class="table_padding" rowspan="14">
+                    <p class="table_name">Sumário de achados e amostras</p>
+                </td>
+                <td colspan="6">
+                    <p class="title_amostra">Amostras opicionais</p>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <label>Órgão</label>
+                </td>
+                <td rowspan="2">
+                    <label>Normal</label>
+                </td>
+                <td rowspan="2">
+                    <label>Alterações</label>
+                </td>
+                <td colspan="3">
+                    <label>Amostras colhidas</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Formol</label>
+                </td>
+                <td>
+                    <label>Congel.</label>
+                </td>
+                <td>
+                    <label>Fotos</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Pele</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_pele" name="pele" value="normal">
+                    <label for="normal_pele"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_pele" name="pele" value="alterações">
+                    <label for="alteracoes_pele"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_pele" name="formol_pele">
+                    <label for="formol_pele"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_pele" name="congel_pele">
+                    <label for="congel_pele"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_pele" name="fotos_pele">
+                    <label for="fotos_pele"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Musculos</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_musculos" name="musculos" value="normal">
+                    <label for="normal_musculos"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_musculos" name="musculos" value="alterações">
+                    <label for="alteracoes_musculos"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_musculos" name="formol_musculos">
+                    <label for="formol_musculos"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_musculos" name="congel_musculos">
+                    <label for="congel_musculos"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_musculos" name="fotos_musculos">
+                    <label for="fotos_musculos"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Gordura</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_gordura" name="gordura" value="normal">
+                    <label for="normal_gordura"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_gordura" name="gordura" value="alterações">
+                    <label for="alteracoes_gordura"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_gordura" name="formol_gordura">
+                    <label for="formol_gordura"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_gordura" name="congel_gordura">
+                    <label for="congel_gordura"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_gordura" name="fotos_gordura">
+                    <label for="fotos_gordura"></label>
+                </td>
+            <tr>
+                <td class="left">
+                    <label>Tireoides e paratireoides</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_tireoides" name="tireoides" value="normal">
+                    <label for="normal_tireoides"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_tireoides" name="tireoides" value="alterações">
+                    <label for="alteracoes_tireoides"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_tireoides" name="formol_tireoides">
+                    <label for="formol_tireoides"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_tireoides" name="congel_tireoides">
+                    <label for="congel_tireoides"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_tireoides" name="fotos_tireoides">
+                    <label for="fotos_tireoides"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Bursa (aves)</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_bursa" name="bursa" value="normal">
+                    <label for="normal_bursa"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_bursa" name="bursa" value="alterações">
+                    <label for="alteracoes_bursa"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_bursa" name="formol_bursa">
+                    <label for="formol_bursa"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_bursa" name="congel_bursa">
+                    <label for="congel_bursa"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_bursa" name="fotos_bursa">
+                    <label for="fotos_bursa"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Encéfalo</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_encefalo" name="encefalo" value="normal">
+                    <label for="normal_encefalo"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_encefalo" name="encefalo" value="alterações">
+                    <label for="alteracoes_encefalo"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_encefalo" name="formol_encefalo">
+                    <label for="formol_encefalo"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_encefalo" name="congel_encefalo">
+                    <label for="congel_encefalo"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_encefalo" name="fotos_encefalo">
+                    <label for="fotos_encefalo"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Língua</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_lingua" name="lingua" value="normal">
+                    <label for="normal_lingua"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_lingua" name="lingua" value="alterações">
+                    <label for="alteracoes_lingua"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_lingua" name="formol_lingua">
+                    <label for="formol_lingua"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_lingua" name="congel_lingua">
+                    <label for="congel_lingua"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_lingua" name="fotos_lingua">
+                    <label for="fotos_lingua"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Cloaca, vagina ou pênis</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_cloaca" name="cloaca" value="normal">
+                    <label for="normal_cloaca"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_cloaca" name="cloaca" value="alterações">
+                    <label for="alteracoes_cloaca"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_cloaca" name="formol_cloaca">
+                    <label for="formol_cloaca"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_cloaca" name="congel_cloaca">
+                    <label for="congel_cloaca"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_cloaca" name="fotos_cloaca">
+                    <label for="fotos_cloaca"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Glândula supraorbital (aves)</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_glan_supra" name="glan_supra" value="normal">
+                    <label for="normal_glan_supra"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_glan_supra" name="glan_supra" value="alterações">
+                    <label for="alteracoes_glan_supra"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_glan_supra" name="formol_glan_supra">
+                    <label for="formol_glan_supra"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_glan_supra" name="congel_glan_supra">
+                    <label for="congel_glan_supra"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_glan_supra" name="fotos_glan_supra">
+                    <label for="fotos_glan_supra"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Glândula uropígea (aves)</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_glan_uro" name="glan_uro" value="normal">
+                    <label for="normal_glan_uro"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_glan_uro" name="glan_uro" value="alterações">
+                    <label for="alteracoes_glan_uro"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_glan_uro" name="formol_glan_uro">
+                    <label for="formol_glan_uro"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_glan_uro" name="congel_glan_uro">
+                    <label for="congel_glan_uro"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_glan_uro" name="fotos_glan_uro">
+                    <label for="fotos_glan_uro"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <label>Bico ou dentes</label>
+                </td>
+                <td>
+                    <input type="radio" id="normal_bico_dentes" name="bico_dentes" value="normal">
+                    <label for="normal_bico_dentes"></label>
+                </td>
+                <td>
+                    <input type="radio" id="alteracoes_bico_dentes" name="bico_dentes" value="alterações">
+                    <label for="alteracoes_bico_dentes"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="formol_bico_dentes" name="formol_bico_dentes">
+                    <label for="formol_bico_dentes"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="congel_bico_dentes" name="congel_bico_dentes">
+                    <label for="congel_bico_dentes"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="fotos_bico_dentes" name="fotos_bico_dentes">
+                    <label for="fotos_bico_dentes"></label>
+                </td>
+            </tr>
+        </table>
+        <table class="exame_ext">
+            <tr>
+                <td class="table_padding" rowspan="3">
+                    <p class="table_name">Conclusão</p>
+                </td>
+                <td rowspan="2">
+                    <label>Diagnóstico preliminar/Comentários:</label>
+                    <textarea rows="4" cols="50" name="diag_pre" placeholder="Diagnóstico..." required></textarea>
+                </td>
+                <td>
+                    <p>Sexo: <br><br>
+                        <input type="radio" id="macho" name="sexo" value="macho">
+                        <label class="cb" for="macho"> Macho</label>
+                        <input type="radio" id="femea" name="sexo" value="femea">
+                        <label class="cb" for="femea">Fêmea</label>
+                        <input type="radio" id="indeterminado" name="sexo" value="indeterminado">
+                        <label class="cb" for="indeterminado">Indeterminado</label>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Documentação adcional: <br><br>
+                        Fotografias externas:&nbsp;&nbsp;&nbsp;
+                        <button class="input-file">
+                          <input type="file" id="file_ext"  name="file_ext"/>
+                          <label for="file_ext">Escolher arquivo</label>
+                        </button><br>
+                        Fotografias internas:&nbsp;&nbsp;&nbsp;
+                        <button class="input-file">
+                          <input type="file" id="file_int" name="file_int"/>
+                          <label for="file_int">Escolher arquivo</label>
+                        </button><br>
+                        Ficha de biometria:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="input-file">
+                          <input type="file" id="file_bio" name="file_bio"/>
+                          <label for="file_bio">Escolher arquivo</label>
+                        </button><br>
+                        <input type="checkbox" id="pena_alu" name="pena_alu" value="pena_alu">
+                        <label for="pena_alu">Penas com óleo em alumínio</label>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label>Observações/Amostras adicionais:</label>
+                    <textarea rows="4" cols="50" name="obs_conclusao" placeholder="Observações..."></textarea>
+                </td>
+            </tr>
+        </table>
+        <table class="re">
+            <tr>
+                <td class="table_padding" rowspan="5" style="padding:1px">
+                    <p class="table_name" style="padding:0px">Informações Complementares</p>
+                </td>
+                <td rowspan="2">
+                    <label>Achados de necropsia:</label>
+                    <textarea rows="10" cols="50" name="achados_necropsia" placeholder="Achados..." required></textarea>
+                </td>
+            </tr>
+        </table>
+                <br><input class="ml" type="submit" value="Enviar">
+        </form>
+    </div>
+</div>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+      text-decoration: none;
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+    body{
+       background-color: #f3f5f9;
+    }
+
+
+    .wrapper{
+      display: flex;
+      position: relative;
+    }
+
+    .wrapper .sidebar{
+      width: 200px;
+      height: 100%;
+      background: #2caad3;
+      padding: 30px 0px;
+      position: fixed;
+    }
+
+    .wrapper .sidebar h2{
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .table_padding{
+      -ms-writing-mode: tb-rl;
+      -webkit-writing-mode: vertical-rl;
+      writing-mode: vertical-rl;
+      transform: rotate(270deg);
+      transform: rotate(270deg);
+      white-space: nowrap;
+      border: none;
+      padding: 9px;
+    }
+    .table_name{
+      padding: 0px;
+      -ms-writing-mode: tb-rl;
+      -webkit-writing-mode: vertical-rl;
+      writing-mode: vertical-rl;
+      transform: rotate(270deg);
+      transform: rotate(270deg);
+      white-space: nowrap;
+      border: none;
+    }
+
+
+    .wrapper .sidebar ul li{
+      padding: 15px;
+      border-bottom: 1px solid #bdb8d7;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .wrapper .sidebar ul li a{
+      color: #fff;
+      display: block;
+    }
+
+    .wrapper .sidebar ul li a .fas{
+      width: 25px;
+    }
+
+    .wrapper .sidebar ul li:hover{
+      background-color: #57c6eb;
+    }
+
+    .wrapper .sidebar ul li:hover a{
+      color: #fff;
+    }
+
+    .wrapper .main_content{
+      width: 100%;
+      margin-left: 200px;
+    }
+
+    .wrapper .main_content .header{
+      padding: 20px;
+      background: #fff;
+      color: #717171;
+      border-bottom: 1px solid #e0e4e8;
+    }
+
+    .wrapper .main_content .info{
+      margin: 20px;
+      color: #717171;
+      line-height: 25px;
+    }
+
+    .wrapper .main_content .info div{
+      margin-bottom: 0px;
+    }
+
+    .title{
+      font-size: 1.1em;
+      font-weight: 700;
+      background-color: #2caad3;
+      color: #FFF;
+      padding:10px;
+      text-transform: uppercase;
+      width: 100%;
+      text-align: center;
+    }
+    .title_amostra{
+      font-size: 1.1em;
+      padding:5px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .amostra{
+        width:100%;
+     }
+
+    .amostra td{
+        padding-top:5px;
+        padding-bottom:5px;
+        padding-right:0px;
+        padding-left:0px;
+    }
+
+    form{
+      padding: 2px;
+      width: 100%;
+    }
+    input{
+      border:none;
+      margin-bottom: 15px;
+      align-items: center;
+      size: 10px;
+    }
+    form{
+        margin-top: 0px;
+    }
+
+    form, input{
+        margin-bottom: 15px;
+    }
+
+    input:last-child{
+        margin-bottom: 0;
+    }
+
+    input[type="text"], textarea{
+        width: 100%;
+        border-radius: 3px;
+        border: 1px solid #9597a6;
+        padding: 10px;
+        outline: none;
+    }
+
+    .re, .hist, .exame_ext{
+        width: 100%;
+        margin-top:10px;
+    }
+
+    .cap, .ad, .reab{
+        width: 100%;
+        margin-bottom:20px;
+    }
+
+    .nb{
+        border:1px solid #2caad3;
+        padding: 30px;
+    }
+
+    td{
+        border: 1px solid #aaa;
+        padding: 20px;
+        margin-bottom:20px;
+    }
+
+
+    /* Base for label styling */
+	[type="checkbox"]:not(:checked),
+	[type="checkbox"]:checked {
+	    margin-bottom:10px;
+		position: absolute;
+		left: 0;
+		opacity: 0.01;
+	}
+	[type="checkbox"]:not(:checked) + label,
+	[type="checkbox"]:checked + label {
+		position: relative;
+		padding-left: 2.3em;
+		line-height: 1.7;
+		cursor: pointer;
+	}
+
+	/* checkbox aspect */
+	[type="checkbox"]:not(:checked) + label:before,
+	[type="checkbox"]:checked + label:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 1em;
+		height: 1em;
+		border: 1px solid #aaa;
+		background: #FFF;
+		border-radius: .2em;
+		box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 rgba(203, 34, 237, .2);
+		-webkit-transition: all .275s;
+				transition: all .275s;
+	}
+
+	/* checked mark aspect */
+	[type="checkbox"]:not(:checked) + label:after,
+	[type="checkbox"]:checked + label:after {
+		content: 'X';
+		position: absolute;
+		top: .7em;
+		left: .18em;
+		color: #2caad3;
+		line-height: 0;
+		-webkit-transition: all .2s;
+				transition: all .2s;
+	}
+
+	/* checked mark aspect changes */
+	[type="checkbox"]:not(:checked) + label:after {
+		opacity: 0;
+		-webkit-transform: scale(0) rotate(45deg);
+				transform: scale(0) rotate(45deg);
+	}
+
+	[type="checkbox"]:checked + label:after {
+		opacity: 1;
+		-webkit-transform: scale(1) rotate(0);
+				transform: scale(1) rotate(0);
+	}
+
+	/* Disabled checkbox */
+	[type="checkbox"]:disabled:not(:checked) + label:before,
+	[type="checkbox"]:disabled:checked + label:before {
+		box-shadow: none;
+		border-color: #bbb;
+		background-color: #e9e9e9;
+	}
+
+	[type="checkbox"]:disabled:checked + label:after {
+		color: #777;
+	}
+
+	[type="checkbox"]:disabled + label {
+		color: #aaa;
+	}
+
+    .cb{
+        color:#828489;
+        font-size: 13px;
+    }
+
+    .input-file {
+      position: relative;
+      overflow: hidden;
+      width: 150px;
+      height: 20px;
+      border: 1px solid #aaa;
+	  background: #FFF;
+		border-radius: .2em;
+		cursor: pointer;
+      transition: background-color .3s ease;
+    }
+
+    .input-file [type = file] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .input-file label {
+      font-family: 'Josefin Sans', sans-serif;
+      color: #1788d8;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    input[type="submit"]{
+      font-family: 'Josefin Sans', sans-serif;
+      width: 150px;
+      height: 50px;
+      font-size: 1em;
+      color: #fff;
+      border: 1px solid #aaa;
+	  background-color: red;
+	  border-radius: .2em;
+	  aling:center;
+	  display:inline;
+    }
+    input[type="submit"]:hover{
+      background-color: #57c6eb;
+    }
+
+    .ml{
+        margin-left:500px;
+    }
+    .amostra td{
+        text-align:center;
+    }
+    .left{
+        text-align:left!important;
+    }
+</style>

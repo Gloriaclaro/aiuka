@@ -1,0 +1,2014 @@
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>AIUKÁ FORMS</title>
+</head>
+<div class="wrapper">
+    <div class="sidebar">
+        <h3>
+            <img src="{{url_for('static', filename='logo.jpeg')}}" style="margin-top:7px" width="199" height="200"/>
+        </h3>
+        <ul>
+            <li><a href="http://127.0.0.1:5000/"><i class="fas fa-project-diagram"></i>Buscar</a></li>
+            <li><a href="http://127.0.0.1:5000/reabilitacao"><i class="fas fa-address-card"></i>Reabilitação</a></li>
+            <li><a href="http://127.0.0.1:5000/necropsia"><i class="fas fa-address-card"></i>Necropsia</a></li>
+        </ul>
+
+    </div>
+    <div class="main_content">
+        <p class="title" align="center">REABILITAÇÃO</p>
+        </table>
+        <form method="post">
+            <table class="re">
+                <tr>
+                    <td class="table_name" rowspan="4">
+                        <p class="table_name">Identificação</p>
+                    </td>
+                    <td>
+                        <label>Número de registro:</label>
+                        <input type="text" name="re" placeholder="<Número de registro>" required>
+                    </td>
+                    <td>
+                        <label> Identificação temporária:</label>
+                        <input type="text" name="idtemp" placeholder="<Identificação temporária>">
+                    </td>
+                    <td>
+                        <label> Identificação permanente:</label>
+                        <input type="text" name="idperm" placeholder="<Identificação permanente>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Incidente:</label>
+                        <input type="text" name="incidente" placeholder="<Incidente>" required>
+                    </td>
+                    <td>
+                        <label>Espécie:</label>
+                        <input type="text" name="especie" placeholder="<Espécie>" required>
+                    </td>
+                    <td>
+                        <label>Nome popular:</label>
+                        <input type="text" name="nome_pop" placeholder="<Nome popular>" required>
+                    </td>
+                </tr>
+            </table><br>
+            <table class="cap">
+                <tr>
+                    <td class="table_name" rowspan="4">
+                        <p class="table_name">Captura/Entrega</p>
+                    </td>
+                    <td>
+                        <label>Local e/ou GPS:</label>
+                        <input type="text" name="local" placeholder="<Local e/ou GPS>" required>
+                    </td>
+                    <td>
+                        <label>Responsável:</label>
+                        <input type="text" name="resp" placeholder="<Responsável>" required>
+                    </td>
+                    <td>
+                        <label>Data e hora:</label>
+                        <input type="text" name="time" placeholder="<Data e Hora>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <p>Estabilização em campo: <br><br>
+                        </p>
+                        <input type="checkbox" id="hidro_vo" name="hidratacao_vo" value="hidro_vo">
+                        <label class="cb" for="hidro_vo"> Hidratação VO</label>
+                        <input type="checkbox" id="hidro_sc" name="hidratacao_sc" value="hidro_sc">
+                        <label class="cb" for="hidro_sc"> Hidratação SC</label>
+                        <input type="checkbox" id="aquecimento" name="aquecimento" value="aquecimento">
+                        <label class="cb" for="aquecimento">Aquecimento</label><br><br>
+                        <input type="text" size="35px" name="est_outro" placeholder="<Outros>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Histórico:</label>
+                        <input size="35px" type="text" name="historico" placeholder="<Histórico>" required>
+                    </td>
+                    <td colspan="2">
+                        <label>Número BO:</label>
+                        <input type="text" name="num_bo" placeholder="<Número BO>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Nome (em caso de entrega):</label><br>
+                        <input type="text" name="nome_entrega" placeholder="<Nome>">
+                    </td>
+                    <td>
+                        <label>CPF/RG:</label><br>
+                        <input type="text" size="35px" name="cpf_rg" placeholder="<CPF ou RG>">
+                    </td>
+                    <td>
+                        <label>Endereço/Telefone:</label><br>
+                        <input type="text" size="50px" name="cep_tel" placeholder="<Endereço/telefone>">
+                    </td>
+                </tr>
+            </table>
+            <table class="ad">
+                <tr>
+                    <td class="table_name" rowspan="8">
+                        <p class="table_name">Admissão</p>
+                    </td>
+                    <td>
+                        <label>Peso(g):</label><br>
+                        <input type="text" size="7px" name="peso" placeholder="<Peso>" required>
+                    </td>
+                    <td>
+                        <label>Freq. Respiratória:</label><br>
+                        <input type="text" size="10px" name="freq_resp" placeholder="<Freq. resp.>">
+                    </td>
+                    <td>
+                        <label>Freq. Cardíaca:</label><br>
+                        <input type="text"  size="10px" name="freq_card" placeholder="<Freq. card.>">
+                    </td>
+                    <td>
+                        <label>Temperatura (°C):</label><br>
+                        <input type="text"  size="10px" name="temp" placeholder="<Temperatura>" required>
+                    </td>
+                    <td>
+                        <label>Hematócrio:</label><br>
+                        <input type="text"  size="10px" name="hema" placeholder="<Hematócrio>">
+                    </td>
+                    <td>
+                        <label>PPT(g/dl):</label><br>
+                        <input type="text"  size="7px" name="ppt" placeholder="<PPT>">
+                    </td>
+                    <td>
+                        <label>Glicose (mg/dl):</label><br>
+                        <input type="text"  size="10px" name="glic" placeholder="<Glicose>">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <p>Grupo etário:<br><br>
+                            <input type="radio" id="filhote" name="g_et" value="Neonato ou filhote" required>
+                            <label class="cb" for="filhote"> Neonato ou filhote</label>
+                            <input type="radio" id="juvenil" name="g_et" value="Juvenil ou Sub-adulto">
+                            <label class="cb" for="juvenil"> Juvenil ou Sub-adulto</label>
+                            <input type="radio" id="adulto" name="g_et" value="adulto">
+                            <label class="cb" for="adulto">Adulto</label>
+                            <input type="radio" id="senil" name="g_et" value="senil">
+                            <label class="cb" for="senil">Senil</label>
+                        </p>
+                    </td>
+                    <td colspan="3">
+                        <p>Sexo: <br><br>
+                            <input type="radio" id="macho" name="sexo" value="macho">
+                            <label class="cb" for="macho"> Macho</label>
+                            <input type="radio" id="femea" name="sexo" value="femea">
+                            <label class="cb" for="femea">Fêmea</label>
+                            <input type="radio" id="indeterminado" name="sexo" value="indeterminado">
+                            <label class="cb" for="indeterminado">Indeterminado</label>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <p>Condição corporal: <br><br>
+                            <input type="radio" id="caquetico" name="condi_corp" value="caquetico" required>
+                            <label class="cb" for="caquetico">Caquético</label>
+                            <input type="radio" id="magro" name="condi_corp" value="magro">
+                            <label class="cb" for="magro">Magro</label>
+                            <input class="cb" type="radio" id="bom" name="condi_corp" value="bom">
+                            <label class="cb" for="bom">Bom</label>
+                            <input type="radio" id="otimo" name="condi_corp" value="otimo">
+                            <label class="cb" for="otimo">Ótimo</label>
+                        </p>
+                    </td>
+                    <td colspan="3">
+                        <p>Desidratação: <br><br>
+                            <input type="radio" id="zero_cinco" name="desidra" value="zero_cinco" required>
+                            <label class="cb" for="zero_cinco">0-5%</label>
+                            <input type="radio" id="cinco_sete" name="desidra" value="cinco_sete">
+                            <label class="cb" for="cinco_sete">5-7%</label>
+                            <input type="radio" id="sete_dez" name="desidra" value="sete_dez">
+                            <label class="cb" for="sete_dez">7-10%</label>
+                            <input type="radio" id="maior_dez" name="desidra" value="maior_dez">
+                            <label class="cb" for="maior_dez"> &gt;10% </label>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <p>Atitude: <br><br>
+                            <input type="radio" id="bar" name="att" value="bar" required>
+                            <label class="cb" for="bar">Alerta e ativo (BAR)</label>
+                            <input type="radio" id="qar" name="att" value="qar">
+                            <label class="cb" for="qar">Alerta e quieto (QAR)</label>
+                            <input type="radio" id="nr" name="att" value="nr">
+                            <label class="cb"for="nr">Não responsivo (NR)</label>
+                        </p>
+                    </td>
+                    <td colspan="3">
+                        <p>Auscultação:<br><br>
+                            <input type="radio" id="sem_ester" name="auscul" value="sem_ester">
+                            <label class="cb" for="sem_ester">Sem estertores</label>
+                            <input type="radio" id="com_ester" name="auscul" value="com_ester">
+                            <label class="cb" for="com_ester">Com estertores</label>
+                            <input type="radio" id="disp_evi" name="auscul" value="disp_evi">
+                            <label class="cb" for="disp_evi">Dispneia evidente</label>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <p>Petrolização (extensão): <br><br>
+                            <input type="radio" id="zero" name="petro_ex" value="zero">
+                            <label class="cb" for="zero">0%</label>
+                            <input type="radio" id="menor_dez" name="petro_ex" value="menor_dez">
+                            <label class="cb" for="menor_dez">&lt 10%</label>
+                            <input type="radio" id="vinte_cinco" name="petro_ex" value="vinte_cinco">
+                            <label class="cb" for="vinte_cinco">25%</label>
+                            <input type="radio" id="cinquenta" name="petro_ex" value="cinquenta">
+                            <label class="cb" for="cinquenta">50%</label>
+                            <input type="radio" id="sete_cinco" name="petro_ex" value="sete_cinco">
+                            <label class="cb" for="sete_cinco">75%</label>
+                            <input type="radio" id="cem" name="petro_ex" value="cem">
+                            <label class="cb" for="cem"> 100% </label>
+                        </p>
+                    </td>
+                    <td colspan="3">
+                        <p>Petrolização (profundidade): <br><br>
+                            <input type="radio" id="superficial" name="petro" value="superficial">
+                            <label class="cb" for="superficial">Superficial</label>
+                            <input type="radio" id="media" name="petro" value="media">
+                            <label class="cb" for="media">Média</label>
+                            <input type="radio" id="profunda" name="petro" value="profunda">
+                            <label class="cb" for="profunda">Profunda</label>
+                            <input type="radio" id="penas_alu" name="petro" value="penas_alu">
+                            <label class="cb" for="penas_alu">Penas em alumínio</label>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <p>Documentação adcional: <br><br>
+                             Fotodocumentação:
+                            <button class="input-file">
+                              <input type="file" name="doc_ad" id="file-input" required/>
+                              <label for="file-input">Escolher arquivo</label>
+                            </button>
+                        </p>
+                    </td>
+                    <td colspan="2">
+                        <label>Responsável:</label>
+                        <input type="text" name="resp_ad" placeholder="<Responsável>" required>
+                    </td>
+                    <td>
+                        <label>Data e hora:</label>
+                        <input type="text" name="time_ad" placeholder="<Data e Hora>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <p>Exame físico:
+                            <input type="checkbox" id="cab_na_bo" name="cab_na_bo" value="cab_na_bo">
+                            <label class="cb" for="cab_na_bo">cabeça, narinas, boca</label>
+                            <input type="checkbox" id="olhos_ouv" name="olhos_ouv" value="olhos_ouv">
+                            <label class="cb" for="olhos_ouv">olhos, ouvidos</label>
+                            <input type="checkbox" id="fezes" name="fezes" value="fezes">
+                            <label class="cb" for="fezes">fezes, cloaca, anûs</label>
+                            <input type="checkbox" id="pes" name="pes" value="pes">
+                            <label class="cb" for="pes">asas, nadadeiras, patas</label>
+                            <input type="checkbox" id="pele" name="pele" value="pele">
+                            <label class="cb" for="pele">pele</label>
+                            <input type="checkbox" id="palp_abd" name="palp_abd" value="palp_abd">
+                            <label class="cb" for="palp_abd">palpação abdominal</label>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <label>Observações:</label>
+                        <textarea rows="4" cols="50" name="obs_ad" placeholder="Observações..." required></textarea>
+                    </td>
+                </tr>
+            </table>
+            <table class="tra">
+                <tr>
+                    <td class="table_name" rowspan="11" style="padding:2px">
+                        <p class="table_name">Tratamentos</p>
+                    </td>
+                    <td>
+                        <label>Droga ou medicamento:</label>
+                    </td>
+                    <td>
+                        <label> Dose(mg/kg ou mg/ave):</label>
+                    </td>
+                    <td>
+                        <label>Via (VO, SC, IM, IV):</label>
+                    </td>
+                    <td>
+                        <label>Frequência <br> (única, SID, BID, QID/<br>Quantos dias):</label>
+                    </td>
+                    <td>
+                        <label>Data início:</label>
+                    </td>
+                    <td>
+                        <label>Data término:</label>
+                    </td>
+                    <td>
+                        <label>Volume (mL):</label>
+                    </td>
+                    <td>
+                        <label>Observações:</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="position:relative">
+                        <input type="text"  size="10px" name="med1" placeholder="<Medicamento>">
+                    </td>
+                    <td>
+                        <input type="text"  size="4px" name="dose1" placeholder="<Dose>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="via1" placeholder="<Via>">
+                    </td>
+                    <td>
+                        <input type="text"  size="3px" name="freq1" placeholder="<Freq.>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_init1" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_term1" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="5px" name="volume1" placeholder="<volume>">
+                    </td>
+                    <td>
+                        <input type="text"  size="8px" name="obs_tra1" placeholder="<Obs...>">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="position:relative">
+                        <input type="text"  size="10px" name="med2" placeholder="<Medicamento>">
+                    </td>
+                    <td>
+                        <input type="text"  size="4px" name="dose2" placeholder="<Dose>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="via2" placeholder="<Via>">
+                    </td>
+                    <td>
+                        <input type="text"  size="3px" name="freq2" placeholder="<Freq.>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_init2" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_term2" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="5px" name="volume2" placeholder="<volume>">
+                    </td>
+                    <td>
+                        <input type="text"  size="8px" name="obs_tra2" placeholder="<Obs...>">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="position:relative">
+                        <input type="text"  size="10px" name="med3" placeholder="<Medicamento>">
+                    </td>
+                    <td>
+                        <input type="text"  size="4px" name="dose3" placeholder="<Dose>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="via3" placeholder="<Via>">
+                    </td>
+                    <td>
+                        <input type="text"  size="3px" name="freq3" placeholder="<Freq.>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_init3" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_term3" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="5px" name="volume3" placeholder="<volume>">
+                    </td>
+                    <td>
+                        <input type="text"  size="8px" name="obs_tra3" placeholder="<Obs...>">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="position:relative">
+                        <input type="text"  size="10px" name="med4" placeholder="<Medicamento>">
+                    </td>
+                    <td>
+                        <input type="text"  size="4px" name="dose4" placeholder="<Dose>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="via4" placeholder="<Via>">
+                    </td>
+                    <td>
+                        <input type="text"  size="3px" name="freq4" placeholder="<Freq.>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_init4" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_term4" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="5px" name="volume4" placeholder="<volume>">
+                    </td>
+                    <td>
+                        <input type="text"  size="8px" name="obs_tra4" placeholder="<Obs...>">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="position:relative">
+                        <input type="text"  size="10px" name="med5" placeholder="<Medicamento>">
+                    </td>
+                    <td style="position:relative">
+                        <input type="text"  size="4px" name="dose5" placeholder="<Dose>">
+                    </td>
+                    <td style="position:relative">
+                        <input type="text"  size="7px" name="via5" placeholder="<Via>">
+                    </td>
+                    <td>
+                        <input type="text"  size="3px" name="freq5" placeholder="<Freq.>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_init5" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_term5" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="5px" name="volume5" placeholder="<volume>">
+                    </td>
+                    <td>
+                        <input type="text"  size="8px" name="obs_tra5" placeholder="<Obs...>">
+                    </td>
+                </tr>
+            </table><br>
+            <table class="reab">
+                <tr>
+                    <td class="table_name" rowspan="10" style="padding:0px">
+                        <p class="table_name">Reabilitação</p>
+                    </td>
+                    <td>
+                        <label>Etapa/Procedimento:</label>
+                    </td>
+                    <td>
+                        <label>Data de início:</label>
+                    </td>
+                    <td>
+                        <label>Data de término:</label>
+                    </td>
+                    <td>
+                        <label>Observações:</label>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="hidra_oral" name="hidra_oral" value="hidra_oral">
+                        <label for="hidra_oral">Hidratação oral</label>
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_hidra_init" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_hidra_ter" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="50" name="obs_hidra" placeholder="Obs..."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="hidra_sub" name="hidra_sub" value="hidra_sub">
+                        <label for="hidra_sub">Hidratação Subcutânea</label>
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_hidrasub_init" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_hidrasub_ter" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="50" name="obs_hidrasub" placeholder="Obs..."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="ali_pas" name="ali_pas" value="ali_pas">
+                        <label for="ali_pas">Alimentação Pastosa</label>
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_alipas_init" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_alipas_ter" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="50" name="obs_alipas" placeholder="Obs..."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="ali_for" name="ali_for" value="ali_for">
+                        <label for="ali_for">Alimentação Sólida Forçada</label><br><br>
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_alifor_init" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_alifor_ter" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="50" name="obs_alifor" placeholder="Obs..."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="ali_sl" name="ali_sl" value="ali_sl">
+                        <label for="ali_sl">Alimentação Sólida Livre</label>
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_alisl_init" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_alisl_ter" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="50" name="obs_alisl" placeholder="Obs..."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="lavag" name="lavag" value="lavag">
+                        <label for="lavag">Lavagem</label>
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_lavag_init" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_lavag_ter" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="50" name="obs_lavag" placeholder="Obs..."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="pisc_ad" name="pisc_ad" value="pisc_ad">
+                        <label for="pisc_ad">Piscina água doce</label>
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_piscad_init" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_piscad_ter" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="50" name="obs_piscad" placeholder="Obs..."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="pisc_as" name="pisc_as" value="pisc_as">
+                        <label for="pisc_as">Piscina água salgada</label>
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_piscas_init" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_piscas_ter" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="50" name="obs_piscas" placeholder="Obs..."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="md_plu" name="md_plu" value="md_plu">
+                        <label for="md_plu">Muda de plumagem</label>
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_mdplu_init" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="4px" name="data_mdplu_ter" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="50" name="obs_reab" placeholder="Obs..."></textarea>
+                    </td>
+                </tr>
+            </table>
+            <table class="sp">
+                <tr>
+                    <td class="table_name" rowspan="14" style="padding:2px">
+                        <p class="table_name" style="padding:0px">Acompanhamento Clínico</p>
+                    </td>
+                    <td>
+                        <label>Data:</label><br>
+                    </td>
+                    <td>
+                        <label>Peso(Kg):</label><br>
+                    </td>
+                    <td>
+                        <label>Cond. Corp:</label><br>
+                    </td>
+                    <td>
+                        <label>Temp.:</label><br>
+                    </td>
+                    <td>
+                        <label>PCV%:</label><br>
+                    </td>
+                    <td>
+                        <label>Bcos%:</label><br>
+                    </td>
+                    <td>
+                        <label>PPT(g/dl):</label><br>
+                    </td>
+                    <td>
+                        <label>Responsável:</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_sp1" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="7px" name="peso_sp1" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="condi_corp_sp1" placeholder="<Cond. corp.>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="temp_sp1" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="pcv_sp1" placeholder="<PCV>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="bcos_sp1" placeholder="<Bcos>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="ppt_sp1" placeholder="<PPT>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="resp_sp1" placeholder="<Responsável>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_sp2" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="7px" name="peso_sp2" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="condi_corp_sp2" placeholder="<Cond. corp.>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="temp_sp2" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="pcv_sp2" placeholder="<PCV>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="bcos_sp2" placeholder="<Bcos>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="ppt_sp2" placeholder="<PPT>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="resp_sp2" placeholder="<Responsável>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_sp3" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="7px" name="peso_sp3" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="condi_corp_sp3" placeholder="<Cond. corp.>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="temp_sp3" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="pcv_sp3" placeholder="<PCV>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="bcos_sp3" placeholder="<Bcos>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="ppt_sp3" placeholder="<PPT>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="resp_sp3" placeholder="<Responsável>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_sp4" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="7px" name="peso_sp4" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="condi_corp_sp4" placeholder="<Cond. corp.>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="temp_sp4" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="pcv_sp4" placeholder="<PCV>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="bcos_sp4" placeholder="<Bcos>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="ppt_sp4" placeholder="<PPT>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="resp_sp4" placeholder="<Responsável>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_sp5" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="7px" name="peso_sp5" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="condi_corp_sp5" placeholder="<Cond. corp.>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="temp_sp5" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="pcv_sp5" placeholder="<PCV>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="bcos_sp5" placeholder="<Bcos>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="ppt_sp5" placeholder="<PPT>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="resp_sp5" placeholder="<Responsável>">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="position:relative">
+                        <input type="text" size="10px" name="data_sp6" placeholder="<Data>">
+                    </td>
+                    <td style="position:relative">
+                        <input type="text" size="7px" name="peso_sp6" placeholder="<Peso>">
+                    </td>
+                    <td style="position:relative">
+                        <input type="text"  size="10px" name="condi_corp_sp6" placeholder="<Cond. corp.>">
+                    </td>
+                    <td style="position:relative">
+                        <input type="text"  size="10px" name="temp_sp6" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="pcv_sp6" placeholder="<PCV>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="bcos_sp6" placeholder="<Bcos>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="ppt_sp6" placeholder="<PPT>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="resp_sp6" placeholder="<Responsável>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_sp7" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="7px" name="peso_sp7" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="condi_corp_sp7" placeholder="<Cond. corp.>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="temp_sp7" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="pcv_sp7" placeholder="<PCV>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="bcos_sp7" placeholder="<Bcos>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="ppt_sp7" placeholder="<PPT>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="resp_sp7" placeholder="<Responsável>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_sp8" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="7px" name="peso_sp8" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="condi_corp_sp8" placeholder="<Cond. corp.>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="temp_sp8" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="pcv_sp8" placeholder="<PCV>">
+                    </td>
+                    <td>
+                        <input type="text"  size="10px" name="bcos_sp8" placeholder="<Bcos>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="ppt_sp8" placeholder="<PPT>">
+                    </td>
+                    <td>
+                        <input type="text"  size="7px" name="resp_sp8" placeholder="<Responsável>">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="8">
+                        <label>Observações:</label>
+                        <textarea rows="4" cols="50" name="obs_sp" placeholder="Observações..."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="8">
+                        <label>Exames adicionais:</label>
+                        <textarea rows="4" cols="50" name="exad_sp" placeholder="Exames adicionais..."></textarea>
+                    </td>
+                </tr>
+            </table>
+            <table class="tp">
+                <tr>
+                    <td class="table_name" rowspan="25" style="padding:0px">
+                        <p class="table_name" style="padding:0px">Manejo Diário</p>
+                    </td>
+                    <td rowspan="2">
+                        <label>Data:</label><br>
+                    </td>
+                    <td rowspan="2">
+                        <label>Peso(Kg):</label><br>
+                    </td>
+                    <td rowspan="2">
+                        <label>Temp.:</label><br>
+                    </td>
+                    <td colspan="2">
+                        <label>Hidratação:</label><br>
+                    </td>
+                    <td colspan="2">
+                        <label>Alimentação:</label><br>
+                    </td>
+                    <td colspan="2">
+                        <label>Medicação:</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Manhã</label>
+                    </td>
+                    <td>
+                        <label>Tarde</label>
+                    </td>
+                    <td>
+                        <label>Manhã</label>
+                    </td>
+                    <td>
+                        <label>Tarde</label>
+                    </td>
+                    <td>
+                        <label>Manhã</label>
+                    </td>
+                    <td>
+                        <label>Tarde</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp1" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp1" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp1" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp1" id="mhidra_tp1">
+                        <label for="mhidra_tp1"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp1" name="thidra_tp1">
+                        <label for="thidra_tp1"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp1" id="mali_tp1">
+                        <label for="mali_tp1"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp1" id="tali_tp1">
+                        <label for="tali_tp1"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp1" id="mmed_tp1">
+                        <label for="mmed_tp1"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp1" id="tmed_tp1">
+                        <label for="tmed_tp1"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp2" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp2" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp2" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp2" id="mhidra_tp2">
+                        <label for="mhidra_tp2"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp2" name="thidra_tp2">
+                        <label for="thidra_tp2"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp2" id="mali_tp2">
+                        <label for="mali_tp2"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp2" id="tali_tp2">
+                        <label for="tali_tp2"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp2" id="mmed_tp2">
+                        <label for="mmed_tp2"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp2" id="tmed_tp2">
+                        <label for="tmed_tp2"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp3" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp3" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp3" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp3" id="mhidra_tp3">
+                        <label for="mhidra_tp3"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp3" name="thidra_tp3">
+                        <label for="thidra_tp3"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp3" id="mali_tp3">
+                        <label for="mali_tp3"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp3" id="tali_tp3">
+                        <label for="tali_tp3"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp3" id="mmed_tp3">
+                        <label for="mmed_tp3"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp3" id="tmed_tp3">
+                        <label for="tmed_tp3"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp4" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp4" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp4" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp4" id="mhidra_tp4">
+                        <label for="mhidra_tp4"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp4" name="thidra_tp4">
+                        <label for="thidra_tp4"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp4" id="mali_tp4">
+                        <label for="mali_tp4"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp4" id="tali_tp4">
+                        <label for="tali_tp4"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp4" id="mmed_tp4">
+                        <label for="mmed_tp4"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp4" id="tmed_tp4">
+                        <label for="tmed_tp4"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp5" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp5" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp5" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp5" id="mhidra_tp5">
+                        <label for="mhidra_tp5"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp5" name="thidra_tp5">
+                        <label for="thidra_tp5"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp5" id="mali_tp5">
+                        <label for="mali_tp5"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp5" id="tali_tp5">
+                        <label for="tali_tp5"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp5" id="mmed_tp5">
+                        <label for="mmed_tp5"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp5" id="tmed_tp5">
+                        <label for="tmed_tp5"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp6" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp6" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp6" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp6" id="mhidra_tp6">
+                        <label for="mhidra_tp6"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp6" name="thidra_tp6">
+                        <label for="thidra_tp6"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp6" id="mali_tp6">
+                        <label for="mali_tp6"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp6" id="tali_tp6">
+                        <label for="tali_tp6"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp6" id="mmed_tp6">
+                        <label for="mmed_tp6"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp6" id="tmed_tp6">
+                        <label for="tmed_tp6"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp7" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp7" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp7" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp7" id="mhidra_tp7">
+                        <label for="mhidra_tp7"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp7" name="thidra_tp7">
+                        <label for="thidra_tp7"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp7" id="mali_tp7">
+                        <label for="mali_tp7"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp7" id="tali_tp7">
+                        <label for="tali_tp7"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp7" id="mmed_tp7">
+                        <label for="mmed_tp7"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp7" id="tmed_tp7">
+                        <label for="tmed_tp7"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp8" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp8" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp8" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp8" id="mhidra_tp8">
+                        <label for="mhidra_tp8"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp8" name="thidra_tp8">
+                        <label for="thidra_tp8"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp8" id="mali_tp8">
+                        <label for="mali_tp8"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp8" id="tali_tp8">
+                        <label for="tali_tp8"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp8" id="mmed_tp8">
+                        <label for="mmed_tp8"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp8" id="tmed_tp8">
+                        <label for="tmed_tp8"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp9" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp9" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp9" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp9" id="mhidra_tp9">
+                        <label for="mhidra_tp9"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp9" name="thidra_tp9">
+                        <label for="thidra_tp9"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp9" id="mali_tp9">
+                        <label for="mali_tp9"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp9" id="tali_tp9">
+                        <label for="tali_tp9"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp9" id="mmed_tp9">
+                        <label for="mmed_tp9"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp9" id="tmed_tp9">
+                        <label for="tmed_tp9"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp10" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp10" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp10" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp10" id="mhidra_tp10">
+                        <label for="mhidra_tp10"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp10" name="thidra_tp10">
+                        <label for="thidra_tp10"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp10" id="mali_tp10">
+                        <label for="mali_tp10"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp10" id="tali_tp10">
+                        <label for="tali_tp10"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp10" id="mmed_tp10">
+                        <label for="mmed_tp10"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp10" id="tmed_tp10">
+                        <label for="tmed_tp10"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="position:relative">
+                        <input type="text" size="10px" name="data_tp11" placeholder="<Data>">
+                    </td>
+                    <td style="position:relative">
+                        <input type="text" size="10px" name="peso_tp11" placeholder="<Peso>">
+                    </td>
+                    <td style="position:relative">
+                        <input type="text" size="10px" name="temp_tp11" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp11" id="mhidra_tp11">
+                        <label for="mhidra_tp11"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp11" name="thidra_tp11">
+                        <label for="thidra_tp11"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp11" id="mali_tp11">
+                        <label for="mali_tp11"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp11" id="tali_tp11">
+                        <label for="tali_tp11"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp11" id="mmed_tp11">
+                        <label for="mmed_tp11"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp11" id="tmed_tp11">
+                        <label for="tmed_tp11"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp12" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp12" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp12" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp12" id="mhidra_tp12">
+                        <label for="mhidra_tp12"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp12" name="thidra_tp12">
+                        <label for="thidra_tp12"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp12" id="mali_tp12">
+                        <label for="mali_tp12"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp12" id="tali_tp12">
+                        <label for="tali_tp12"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp12" id="mmed_tp12">
+                        <label for="mmed_tp12"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp12" id="tmed_tp12">
+                        <label for="tmed_tp12"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp13" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp13" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp13" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp13" id="mhidra_tp13">
+                        <label for="mhidra_tp13"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp13" name="thidra_tp13">
+                        <label for="thidra_tp13"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp13" id="mali_tp13">
+                        <label for="mali_tp13"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp13" id="tali_tp13">
+                        <label for="tali_tp13"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp13" id="mmed_tp13">
+                        <label for="mmed_tp13"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp13" id="tmed_tp13">
+                        <label for="tmed_tp13"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp14" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp14" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp14" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp14" id="mhidra_tp14">
+                        <label for="mhidra_tp14"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp14" name="thidra_tp14">
+                        <label for="thidra_tp14"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp14" id="mali_tp14">
+                        <label for="mali_tp14"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp14" id="tali_tp14">
+                        <label for="tali_tp14"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp14" id="mmed_tp14">
+                        <label for="mmed_tp14"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp14" id="tmed_tp14">
+                        <label for="tmed_tp14"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp15" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp15" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp15" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp15" id="mhidra_tp15">
+                        <label for="mhidra_tp15"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp15" name="thidra_tp15">
+                        <label for="thidra_tp15"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp15" id="mali_tp15">
+                        <label for="mali_tp15"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp15" id="tali_tp15">
+                        <label for="tali_tp15"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp15" id="mmed_tp15">
+                        <label for="mmed_tp15"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp15" id="tmed_tp15">
+                        <label for="tmed_tp15"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp16" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp16" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp16" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp16" id="mhidra_tp16">
+                        <label for="mhidra_tp16"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp16" name="thidra_tp16">
+                        <label for="thidra_tp16"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp16" id="mali_tp16">
+                        <label for="mali_tp16"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp16" id="tali_tp16">
+                        <label for="tali_tp16"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp16" id="mmed_tp16">
+                        <label for="mmed_tp16"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp16" id="tmed_tp16">
+                        <label for="tmed_tp16"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp17" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp17" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp17" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp17" id="mhidra_tp17">
+                        <label for="mhidra_tp17"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp17" name="thidra_tp17">
+                        <label for="thidra_tp17"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp17" id="mali_tp17">
+                        <label for="mali_tp17"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp17" id="tali_tp17">
+                        <label for="tali_tp17"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp17" id="mmed_tp17">
+                        <label for="mmed_tp17"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp17" id="tmed_tp17">
+                        <label for="tmed_tp17"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp18" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp18" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp18" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp18" id="mhidra_tp18">
+                        <label for="mhidra_tp18"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp18" name="thidra_tp18">
+                        <label for="thidra_tp18"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp18" id="mali_tp18">
+                        <label for="mali_tp18"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp18" id="tali_tp18">
+                        <label for="tali_tp18"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp18" id="mmed_tp18">
+                        <label for="mmed_tp18"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp18" id="tmed_tp18">
+                        <label for="tmed_tp18"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp19" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp19" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp19" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp19" id="mhidra_tp19">
+                        <label for="mhidra_tp19"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp19" name="thidra_tp19">
+                        <label for="thidra_tp19"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp19" id="mali_tp19">
+                        <label for="mali_tp19"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp19" id="tali_tp19">
+                        <label for="tali_tp19"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp19" id="mmed_tp19">
+                        <label for="mmed_tp19"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp19" id="tmed_tp19">
+                        <label for="tmed_tp19"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp20" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp20" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp20" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp20" id="mhidra_tp20">
+                        <label for="mhidra_tp20"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp20" name="thidra_tp20">
+                        <label for="thidra_tp20"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp20" id="mali_tp20">
+                        <label for="mali_tp20"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp20" id="tali_tp20">
+                        <label for="tali_tp20"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp20" id="mmed_tp20">
+                        <label for="mmed_tp20"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp20" id="tmed_tp20">
+                        <label for="tmed_tp20"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="10px" name="data_tp21" placeholder="<Data>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="peso_tp21" placeholder="<Peso>">
+                    </td>
+                    <td>
+                        <input type="text" size="10px" name="temp_tp21" placeholder="<Temp.>">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mhidra_tp21" id="mhidra_tp21">
+                        <label for="mhidra_tp21"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="thidra_tp21" name="thidra_tp21">
+                        <label for="thidra_tp21"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mali_tp21" id="mali_tp21">
+                        <label for="mali_tp21"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tali_tp21" id="tali_tp21">
+                        <label for="tali_tp21"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="mmed_tp21" id="mmed_tp21">
+                        <label for="mmed_tp21"></label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tmed_tp21" id="tmed_tp21">
+                        <label for="tmed_tp21"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="9">
+                        <label>Observações:</label>
+                        <textarea rows="4" cols="50" name="obs_tp" placeholder="Observações..."></textarea>
+                    </td>
+                </tr>
+            </table>
+            <table class="acomp">
+                <tr>
+                    <td class="table_name" rowspan="25" style="padding:0px">
+                        <p class="table_name" style="padding:0px">Acompanhamento</p>
+                    </td>
+                    <td colspan="9">
+                        <label>Procedimentos/Resultados Clínicos/Observações</label>
+                        <textarea rows="4" cols="50" name="acompanhamento"placeholder="Acompanhamento..."></textarea>
+                    </td>
+                </tr>
+            </table><br>
+            <table class="reab">
+                <tr>
+                    <td class="table_name" rowspan="9" style="padding:1px">
+                        <p class="table_name">Destinação</p>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="lib" name="lib" value="lib">
+                        <label for="lib"> Liberação</label>
+                    </td>
+                    <td>
+                        <label> Local e/ou GPS</label>
+                        <input type="text" size="10px" name="local_dest" placeholder="<Local e/ou GPS>">
+                    </td>
+                    <td >
+                        <label>Responsável:</label>
+                        <input type="text" name="resp_dest" placeholder="<Responsável>" required>
+                    </td>
+                    <td>
+                        <label>Data e hora:</label>
+                        <input type="text" size="7px" name="time_dest" placeholder="<Data e Hora>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="obito" name="obito" value="obito">
+                        <label for="obito"> Óbito</label>
+                    </td>
+                    <td>
+                        <label>Diagnóstico preliminar:</label>
+                        <input type="text" size="7px" name="pre_diag" placeholder="<Diagnóstico preliminar>">
+                    </td>
+                    <td rowspan="3" colspan="2">
+                        <p>Documentação adcional: <br><br>
+                             Fotodocumentação:
+                            <button class="input-file">
+                              <input type="file" id="file" name="foto_doc_dest"/>
+                              <label for="file">Escolher arquivo</label>
+                            </button><br>
+                            Ficha de biometria:
+                            <button class="input-file">
+                              <input type="file" id="file_bio" name="file_bio"/>
+                              <label for="file_bio">Escolher arquivo</label>
+                            </button><br>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="eutanasia" name="eutanasia" value="eutanasia">
+                        <label for="eutanasia"> Eutanásia</label>
+                    </td>
+                    <td>
+                        <label>Justificativa:</label>
+                        <input type="text" size="7px" name="justif" placeholder="<Justificativa>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="transf" name="transf" value="transf">
+                        <label for="transf">Transferência</label>
+                    </td>
+                    <td>
+                        <label>Destino:</label>
+                        <input type="text" size="7px" name="dest" placeholder="<Destino>">
+                    </td>
+                </tr>
+            </table>
+                <br><input class="ml" type="submit" value="Enviar">
+        </form>
+    </div>
+</div>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+      text-decoration: none;
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+    body{
+       background-color: #f3f5f9;
+    }
+
+    .wrapper{
+      display: flex;
+      position: relative;
+    }
+
+    .wrapper .sidebar{
+      width: 200px;
+      height: 100%;
+      background: #2caad3;
+      padding: 30px 0px;
+      position: fixed;
+    }
+
+    .wrapper .sidebar h2{
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .wrapper .sidebar ul li{
+      padding: 15px;
+      border-bottom: 1px solid #bdb8d7;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .wrapper .sidebar ul li a{
+      color: #fff;
+      display: block;
+    }
+
+    .wrapper .sidebar ul li a .fas{
+      width: 25px;
+    }
+
+    .wrapper .sidebar ul li:hover{
+      background-color: #57c6eb;
+    }
+
+    .wrapper .sidebar ul li:hover a{
+      color: #fff;
+    }
+
+    .wrapper .main_content{
+      width: 100%;
+      margin-left: 200px;
+    }
+
+    .wrapper .main_content .header{
+      padding: 20px;
+      background: #fff;
+      color: #717171;
+      border-bottom: 1px solid #e0e4e8;
+    }
+
+    .wrapper .main_content .info{
+      margin: 20px;
+      color: #717171;
+      line-height: 25px;
+    }
+
+    .wrapper .main_content .info div{
+      margin-bottom: 0px;
+    }
+
+    .title{
+      font-size: 1.1em;
+      font-weight: 700;
+      background-color: #2caad3;
+      color: #FFF;
+      padding:10px;
+      text-transform: uppercase;
+      width: 100%;
+      text-align: center;
+    }
+
+    form{
+      padding: 2px;
+      width: 100%;
+    }
+    input{
+      border:none;
+      margin-bottom: 15px;
+      align-items: center;
+      size: 10px;
+    }
+    form{
+        margin-top: 0px;
+    }
+
+    form, input{
+        margin-bottom: 15px;
+    }
+
+    input:last-child{
+        margin-bottom: 0;
+    }
+
+    .tra td, .sp td, .tp td{
+        padding:5px;
+    }
+
+    input[type="text"], textarea{
+        width: 100%;
+        border-radius: 3px;
+        border: 1px solid #9597a6;
+        padding: 10px;
+        outline: none;
+    }
+    .table_name{
+      -ms-writing-mode: tb-rl;
+      -webkit-writing-mode: vertical-rl;
+      writing-mode: vertical-rl;
+      transform: rotate(270deg);
+      transform: rotate(270deg);
+      white-space: nowrap;
+      border: none;
+      padding:2px;
+      padding-left:3px;
+    }
+    .re, .sp, .tp, .acomp{
+        width: 100%;
+        margin-top:10px;
+    }
+    .cap, .ad, .reab{
+        width: 100%;
+        margin-bottom:20px;
+    }
+
+    .nb{
+        border:1px solid #2caad3;
+        padding: 30px;
+    }
+
+    td{
+        border: 1px solid #aaa;
+        padding: 20px;
+        margin-bottom:20px;
+    }
+
+
+    /* Base for label styling */
+	[type="checkbox"]:not(:checked),
+	[type="checkbox"]:checked {
+	    margin-bottom:10px;
+		position: absolute;
+		left: 0;
+		opacity: 0.01;
+	}
+	[type="checkbox"]:not(:checked) + label,
+	[type="checkbox"]:checked + label {
+		position: relative;
+		padding-left: 2.3em;
+		line-height: 1.7;
+		cursor: pointer;
+	}
+
+	/* checkbox aspect */
+	[type="checkbox"]:not(:checked) + label:before,
+	[type="checkbox"]:checked + label:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 1em;
+		height: 1em;
+		border: 1px solid #aaa;
+		background: #FFF;
+		border-radius: .2em;
+		box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 rgba(203, 34, 237, .2);
+		-webkit-transition: all .275s;
+				transition: all .275s;
+	}
+
+	/* checked mark aspect */
+	[type="checkbox"]:not(:checked) + label:after,
+	[type="checkbox"]:checked + label:after {
+		content: 'X';
+		position: absolute;
+		top: .7em;
+		left: .18em;
+		color: #2caad3;
+		line-height: 0;
+		-webkit-transition: all .2s;
+				transition: all .2s;
+	}
+
+	/* checked mark aspect changes */
+	[type="checkbox"]:not(:checked) + label:after {
+		opacity: 0;
+		-webkit-transform: scale(0) rotate(45deg);
+				transform: scale(0) rotate(45deg);
+	}
+
+	[type="checkbox"]:checked + label:after {
+		opacity: 1;
+		-webkit-transform: scale(1) rotate(0);
+				transform: scale(1) rotate(0);
+	}
+
+	/* Disabled checkbox */
+	[type="checkbox"]:disabled:not(:checked) + label:before,
+	[type="checkbox"]:disabled:checked + label:before {
+		box-shadow: none;
+		border-color: #bbb;
+		background-color: #e9e9e9;
+	}
+
+	[type="checkbox"]:disabled:checked + label:after {
+		color: #777;
+	}
+
+	[type="checkbox"]:disabled + label {
+		color: #aaa;
+	}
+
+    .cb{
+        color:#828489;
+        font-size: 13px;
+    }
+
+    .input-file {
+      position: relative;
+      overflow: hidden;
+      width: 150px;
+      height: 20px;
+      border: 1px solid #aaa;
+	  background: #FFF;
+		border-radius: .2em;
+		cursor: pointer;
+      transition: background-color .3s ease;
+    }
+
+    .input-file [type = file] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .input-file label {
+      font-family: 'Josefin Sans', sans-serif;
+      color: #1788d8;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    input[type="submit"]{
+      font-family: 'Josefin Sans', sans-serif;
+      width: 150px;
+      height: 50px;
+      font-size: 1em;
+      color: #fff;
+      border: 1px solid #aaa;
+	  background-color: red;
+	  border-radius: .2em;
+	  aling:center;
+	  display:inline;
+    }
+    input[type="submit"]:hover{
+      background-color: #57c6eb;
+    }
+
+    .ml{
+        margin-left:500px;
+    }
+    .tp td{
+        text-align:center;
+    }
+</style>

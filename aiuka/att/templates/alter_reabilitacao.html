@@ -1,0 +1,2914 @@
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>AIUKÁ FORMS</title>
+</head>
+<div class="wrapper">
+    <div class="sidebar">
+        <h3>
+            <img src="{{url_for('static', filename='logo.jpeg')}}" style="margin-top:7px" width="199" height="200"/>
+        </h3>
+        <ul>
+            <li><a href="http://127.0.0.1:5000/"><i class="fas fa-project-diagram"></i>Buscar</a></li>
+            <li><a href="http://127.0.0.1:5000/reabilitacao"><i class="fas fa-address-card"></i>Reabilitação</a></li>
+            <li><a href="http://127.0.0.1:5000/necropsia"><i class="fas fa-address-card"></i>Necropsia</a></li>
+        </ul>
+
+    </div>
+    <div class="main_content">
+        <p class="title" align="center">REABILITAÇÃO</p>
+        </table>
+        <form method="post">
+            <table class="re">
+                <tr>
+                    <td class="table_name" rowspan="4" style="padding:5px">
+                        <p class="table_name" style="padding:0px">Identificação</p>
+                    </td>
+                    <td>
+                        <label>Número de registro: </label>
+                        <textarea required name="re">{{value[0]}}</textarea>
+                    </td>
+                    <td>
+                        <label> Identificação temporária:</label>
+                        <textarea cols="1" rows="1" name="idtemp">{{value[1]}}</textarea>
+                    </td>
+                    <td>
+                        <label> Identificação permanente:</label>
+                        <textarea cols="1" rows="1" name="idperm" required>{{value[2]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Incidente:</label>
+                        <textarea cols="1" rows="1" name="incidente" required>{{value[3]}}</textarea>
+                    </td>
+                    <td  >
+                        <label>Espécie:</label>
+                        <textarea cols="1" rows="1" name="especie" required>{{value[4]}}</textarea>
+                    </td>
+                    <td>
+                        <label>Nome popular:</label>
+                        <textarea cols="1" rows="1" name="nome_pop" required>{{value[99]}}</textarea>
+                    </td>
+                </tr>
+            </table><br>
+            <table class="cap">
+                <tr>
+                    <td class="table_name" style="padding: 0px" rowspan="4">
+                        <p class="table_name" >Captura/Entrega</p>
+                    </td>
+                    <td>
+                        <label>Local e/ou GPS:</label>
+                        <textarea cols="1" rows="1" name="local" required>{{value[5]}}</textarea>
+                    </td>
+                    <td>
+                        <label>Responsável:</label>
+                        <textarea cols="1" rows="1" name="resp" required>{{value[6]}}</textarea>
+                    </td>
+                    <td>
+                        <label>Data e hora:</label>
+                        <textarea cols="1" rows="1" name="time" required>{{value[7]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <p>Estabilização em campo:
+                            {% if value[8]%}
+                            <input type="checkbox" checked id="hidro_vo" name="hidratacao_vo" value="hidro_vo">
+                            <label class="cb" for="hidro_vo"> Hidratação VO</label>
+                            {% else %}
+                            <input type="checkbox" id="hidro_vo" name="hidratacao_vo" value="hidro_vo">
+                            <label class="cb" for="hidro_vo"> Hidratação VO</label>
+                            {% endif %}
+                            {% if value[9]%}
+                            <input type="checkbox" checked id="hidro_sc" name="hidratacao_sc" value="hidro_sc">
+                            <label class="cb" for="hidro_sc"> Hidratação SC</label>
+                            {%else%}
+                            <input type="checkbox"  id="hidro_sc" name="hidratacao_sc" value="hidro_sc">
+                            <label class="cb" for="hidro_sc"> Hidratação SC</label>
+                            {%endif%}
+                            {%if value[10]%}
+                            <input type="checkbox" checked id="aquecimento" name="aquecimento" value="aquecimento">
+                            <label class="cb" for="aquecimento">Aquecimento</label>
+                            {%else%}
+                            <input type="checkbox" id="aquecimento" name="aquecimento" value="aquecimento">
+                            <label class="cb" for="aquecimento">Aquecimento</label>
+                            {%endif%}
+                            {%if value[11]%}
+                            <input type="checkbox" checked id="outros" name="est_outro" value="{{value[11]}}">
+                            <label class="cb" for="outros">{{value[11]}}</label>
+                            {%else%}
+                            <input type="text" name="est_outro" placeholder="<Outros>">
+                            {%endif%}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Histórico:</label>
+                        <textarea cols="1" rows="1" name="historico" required>{{value[12]}}</textarea>
+                    </td>
+                    <td colspan="2">
+                        <label>Número BO:</label>
+                        <textarea cols="1" rows="1" name="num_bo">{{value[13]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Nome (em caso de entrega):</label><br>
+                        <textarea cols="1" rows="1" name="nome_entrega">{{value[14]}}</textarea>
+                    </td>
+                    <td>
+                        <label>CPF/RG:</label><br>
+                        <textarea cols="1" rows="1" name="cpf_rg">{{value[15]}}</textarea>
+                    </td>
+                    <td>
+                        <label>Endereço/Telefone:</label><br>
+                        <textarea cols="1" rows="1" name="cep_tel">{{value[16]}}</textarea>
+                    </td>
+                </tr>
+            </table>
+            <table class="ad">
+                <tr>
+                    <td class="table_name" style="padding:4px" rowspan="8">
+                        <p class="table_name">Admissão</p>
+                    </td>
+                    <td>
+                        <label>Peso(g):</label><br>
+                        <textarea cols="1" rows="1" size="7px" name="peso" required>{{value[17]}}</textarea>
+                    </td>
+                    <td>
+                        <label>Freq. Respiratória:</label><br>
+                        <textarea cols="1" rows="1" size="10px" name="freq_resp">{{value[18]}}</textarea>
+                    </td>
+                    <td>
+                        <label>Freq. Cardíaca:</label><br>
+                        <textarea cols="1" rows="1" size="10px" name="freq_card">{{value[19]}}</textarea>
+                    </td>
+                    <td>
+                        <label>Temperatura (°C):</label><br>
+                        <textarea cols="1" rows="1" size="12px" name="temp" required>{{value[20]}}</textarea>
+                    </td>
+                    <td>
+                        <label>Hematócrio:</label><br>
+                        <textarea cols="1" rows="1" size="10px" name="hema">{{value[21]}}</textarea>
+                    </td>
+                    <td>
+                        <label>PPT(g/dl):</label><br>
+                        <textarea cols="1" rows="1" size="7px" name="ppt">{{value[22]}}</textarea>
+                    </td>
+                    <td>
+                        <label>Glicose (mg/dl):</label><br>
+                        <textarea cols="1" rows="1" size="7px" name="glic">{{value[23]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <p>Grupo etário:<br><br>
+                            {% if value[24]=="Neonato ou filhote"%}
+                            <input type="radio" checked id="filhote" name="g_et" value="Neonato ou filhote" required>
+                            <label class="cb" for="filhote"> Neonato ou filhote</label>
+                            {% else%}
+                            <input type="radio" id="filhote" name="g_et" value="Neonato ou filhote">
+                            <label class="cb" for="filhote"> Neonato ou filhote</label>
+                            {%endif%}
+                            {% if value[24]=="Juvenil ou Sub-adulto"%}
+                            <input type="radio" checked id="juvenil" name="g_et" value="Juvenil ou Sub-adulto">
+                            <label class="cb" for="juvenil"> Juvenil ou Sub-adulto</label>
+                            {%else%}
+                            <input type="radio" id="juvenil" name="g_et" value="Juvenil ou Sub-adulto">
+                            <label class="cb" for="juvenil"> Juvenil ou Sub-adulto</label>
+                            {%endif%}
+                            {% if value[24]=="adulto"%}
+                            <input type="radio" checked id="adulto" name="g_et" value="adulto">
+                            <label class="cb" for="adulto">Adulto</label>
+                            {%else%}
+                            <input type="radio" id="adulto" name="g_et" value="adulto">
+                            <label class="cb" for="adulto">Adulto</label>
+                            {%endif%}
+                            {% if value[24]=="senil"%}
+                            <input type="radio" checked id="senil" name="g_et" value="senil">
+                            <label class="cb" for="senil">Senil</label>
+                            {%else%}
+                            <input type="radio" id="senil" name="g_et" value="senil">
+                            <label class="cb" for="senil">Senil</label>
+                            {%endif%}
+                        </p>
+                    </td>
+                    <td colspan="3">
+                        <p>Sexo: <br><br>
+                            {% if value[25]=="macho"%}
+                            <input type="radio" checked id="macho" name="sexo" value="macho">
+                            <label class="cb" for="macho"> Macho</label>
+                            {%else%}
+                            <input type="radio" id="macho" name="sexo" value="macho">
+                            <label class="cb" for="macho"> Macho</label>
+                            {%endif%}
+                            {% if value[25]=="femea"%}
+                            <input type="radio" checked id="femea" name="sexo" value="femea">
+                            <label class="cb" for="femea">Fêmea</label>
+                            {%else%}
+                            <input type="radio" id="femea" name="sexo" value="femea">
+                            <label class="cb" for="femea">Fêmea</label>
+                            {%endif%}
+                            {% if value[25]=="indeterminado"%}
+                            <input type="radio" checked id="indeterminado" name="sexo" value="indeterminado">
+                            <label class="cb" for="indeterminado">Indeterminado</label>
+                            {%else%}
+                            <input type="radio" id="indeterminado" name="sexo" value="indeterminado">
+                            <label class="cb" for="indeterminado">Indeterminado</label>
+                            {%endif%}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <p>Condição corporal: <br><br>
+                            {% if value[26]=="caquetico"%}
+                            <input type="radio" checked id="caquetico" name="condi_corp" value="caquetico" required>
+                            <label class="cb" for="caquetico">Caquético</label>
+                            {%else%}
+                            <input type="radio" id="caquetico" name="condi_corp" value="caquetico">
+                            <label class="cb" for="caquetico">Caquético</label>
+                            {%endif%}
+                            {% if value[26]=="magro"%}
+                            <input type="radio" checked id="magro" name="condi_corp" value="magro">
+                            <label class="cb" for="magro">Magro</label>
+                            {%else%}
+                            <input type="radio" id="magro" name="condi_corp" value="magro">
+                            <label class="cb" for="magro">Magro</label>
+                            {%endif%}
+                            {% if value[26]=="bom"%}
+                            <input class="cb" checked type="radio" id="bom" name="condi_corp" value="bom">
+                            <label class="cb" for="bom">Bom</label>
+                            {%else%}
+                            <input class="cb" type="radio" id="bom" name="condi_corp" value="bom">
+                            <label class="cb" for="bom">Bom</label>
+                            {%endif%}
+                            {% if value[26]=="otimo"%}
+                            <input type="radio" checked id="otimo" name="condi_corp" value="otimo">
+                            <label class="cb" for="otimo">Ótimo</label>
+                            {%else%}
+                            <input type="radio" id="otimo" name="condi_corp" value="otimo">
+                            <label class="cb" for="otimo">Ótimo</label>
+                            {%endif%}
+                        </p>
+                    </td>
+                    <td colspan="3">
+                        <p>Desidratação: <br><br>
+                            {% if value[27]=="zero_cinco"%}
+                            <input type="radio" checked id="zero_cinco" name="desidra" value="zero_cinco" required>
+                            <label class="cb" for="zero_cinco">0-5%</label>
+                            {%else%}
+                            <input type="radio" id="zero_cinco" name="desidra" value="zero_cinco">
+                            <label class="cb" for="zero_cinco">0-5%</label>
+                            {%endif%}
+                            {% if value[27]=="cinco_sete"%}
+                            <input type="radio" checked id="cinco_sete" name="desidra" value="cinco_sete">
+                            <label class="cb" for="cinco_sete">5-7%</label>
+                            {%else%}
+                            <input type="radio" id="cinco_sete" name="desidra" value="cinco_sete">
+                            <label class="cb" for="cinco_sete">5-7%</label>
+                            {%endif%}
+                            {% if value[27]=="sete_dez"%}
+                            <input type="radio" checked id="sete_dez" name="desidra" value="sete_dez">
+                            <label class="cb" for="sete_dez">7-10%</label>
+                            {%else%}
+                            <input type="radio" id="sete_dez" name="desidra" value="sete_dez">
+                            <label class="cb" for="sete_dez">7-10%</label>
+                            {%endif%}
+                            {% if value[27]=="maior_dez"%}
+                            <input type="radio" checked id="maior_dez" name="desidra" value="maior_dez">
+                            <label class="cb" for="maior_dez"> &gt;10% </label>
+                            {%else%}
+                            <input type="radio" id="maior_dez" name="desidra" value="maior_dez">
+                            <label class="cb" for="maior_dez"> &gt;10% </label>
+                            {%endif%}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <p>Atitude: <br><br>
+                            {% if value[28]=="bar"%}
+                            <input type="radio" checked id="bar" name="att" value="bar" required>
+                            <label class="cb" for="bar">Alerta e ativo (BAR)</label>
+                            {%else%}
+                            <input type="radio" id="bar" name="att" value="bar">
+                            <label class="cb" for="bar">Alerta e ativo (BAR)</label>
+                            {%endif%}
+                            {% if value[28]=="qar"%}
+                            <input type="radio" checked id="qar" name="att" value="qar">
+                            <label class="cb" for="qar">Alerta e quieto (QAR)</label>
+                            {%else%}
+                            <input type="radio" id="qar" name="att" value="qar">
+                            <label class="cb" for="qar">Alerta e quieto (QAR)</label>
+                            {%endif%}
+                            {% if value[28]=="nr"%}
+                            <input type="radio" checked id="nr" name="att" value="nr">
+                            <label class="cb"for="nr">Não responsivo (NR)</label>
+                            {%else%}
+                            <input type="radio" id="nr" name="att" value="nr">
+                            <label class="cb"for="nr">Não responsivo (NR)</label>
+                            {%endif%}
+                        </p>
+                    </td>
+                    <td colspan="3">
+                        <p>Auscultação:<br><br>
+                            {% if value[29]=="sem_ester"%}
+                            <input type="radio" checked id="sem_ester" name="auscul" value="sem_ester">
+                            <label class="cb" for="sem_ester">Sem estertores</label>
+                            {%else%}
+                            <input type="radio" id="sem_ester" name="auscul" value="sem_ester">
+                            <label class="cb" for="sem_ester">Sem estertores</label>
+                            {%endif%}
+                            {% if value[29]=="com_ester"%}
+                            <input type="radio" checked id="com_ester" name="auscul" value="com_ester">
+                            <label class="cb" for="com_ester">Com estertores</label>
+                            {%else%}
+                            <input type="radio" id="com_ester" name="auscul" value="com_ester">
+                            <label class="cb" for="com_ester">Com estertores</label>
+                            {%endif%}
+                            {% if value[29]=="disp_evi"%}
+                            <input type="radio" checked id="disp_evi" name="auscul" value="disp_evi">
+                            <label class="cb" for="disp_evi">Dispneia evidente</label>
+                            {%else%}
+                            <input type="radio" id="disp_evi" name="auscul" value="disp_evi">
+                            <label class="cb" for="disp_evi">Dispneia evidente</label>
+                            {%endif%}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <p>Petrolização (extensão): <br><br>
+                            {% if value[30]=="zero"%}
+                            <input type="radio" checked id="zero" name="petro_ex" value="zero">
+                            <label class="cb" for="zero">0%</label>
+                            {%else%}
+                            <input type="radio" id="zero" name="petro_ex" value="zero">
+                            <label class="cb" for="zero">0%</label>
+                            {%endif%}
+                            {% if value[30]=="menor_dez"%}
+                            <input type="radio" checked id="menor_dez" name="petro_ex" value="menor_dez">
+                            <label class="cb" for="menor_dez">&lt 10%</label>
+                            {%else%}
+                            <input type="radio" id="menor_dez" name="petro_ex" value="menor_dez">
+                            <label class="cb" for="menor_dez">&lt 10%</label>
+                            {%endif%}
+                            {% if value[30]=="vinte_cinco"%}
+                            <input type="radio" checked id="vinte_cinco" name="petro_ex" value="vinte_cinco">
+                            <label class="cb" for="vinte_cinco">25%</label>
+                            {%else%}
+                            <input type="radio" id="vinte_cinco" name="petro_ex" value="vinte_cinco">
+                            <label class="cb" for="vinte_cinco">25%</label>
+                            {%endif%}
+                            {% if value[30]=="cinquenta"%}
+                            <input type="radio" checked id="cinquenta" name="petro_ex" value="cinquenta">
+                            <label class="cb" for="cinquenta">50%</label>
+                            {%else%}
+                            <input type="radio" id="cinquenta" name="petro_ex" value="cinquenta">
+                            <label class="cb" for="cinquenta">50%</label>
+                            {%endif%}
+                            {% if value[30]=="sete_cinco"%}
+                            <input type="radio" checked id="sete_cinco" name="petro_ex" value="sete_cinco">
+                            <label class="cb" for="sete_cinco">75%</label>
+                            {%else%}
+                            <input type="radio" id="sete_cinco" name="petro_ex" value="sete_cinco">
+                            <label class="cb" for="sete_cinco">75%</label>
+                            {%endif%}
+                            {% if value[30]=="cem"%}
+                            <input type="radio" checked id="cem" name="petro_ex" value="cem">
+                            <label class="cb" for="cem"> 100% </label>
+                            {%else%}
+                            <input type="radio" id="cem" name="petro_ex" value="cem">
+                            <label class="cb" for="cem"> 100% </label>
+                            {%endif%}
+                        </p>
+                    </td>
+                    <td colspan="3">
+                        <p>Petrolização (profundidade): <br><br>
+                            {% if value[31]=="superficial"%}
+                            <input type="radio" checked id="superficial" name="petro" value="superficial">
+                            <label class="cb" for="superficial">Superficial</label>
+                            {%else%}
+                            <input type="radio" id="superficial" name="petro" value="superficial">
+                            <label class="cb" for="superficial">Superficial</label>
+                            {%endif%}
+                            {% if value[31]=="media"%}
+                            <input type="radio" checked id="media" name="petro" value="media">
+                            <label class="cb" for="media">Média</label>
+                            {%else%}
+                            <input type="radio" id="media" name="petro" value="media">
+                            <label class="cb" for="media">Média</label>
+                            {%endif%}
+                            {% if value[31]=="profunda"%}
+                            <input type="radio" checked id="profunda" name="petro" value="profunda">
+                            <label class="cb" for="profunda">Profunda</label>
+                            {%else%}
+                            <input type="radio" id="profunda" name="petro" value="profunda">
+                            <label class="cb" for="profunda">Profunda</label>
+                            {%endif%}
+                            {% if value[31]=="penas_alu"%}
+                            <input type="radio" checked id="penas_alu" name="petro" value="penas_alu">
+                            <label class="cb" for="penas_alu">Penas em alumínio</label>
+                            {%else%}
+                            <input type="radio" id="penas_alu" name="petro" value="penas_alu">
+                            <label class="cb" for="penas_alu">Penas em alumínio</label>
+                            {%endif%}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <p>Documentação adcional: <br><br>
+                             Fotodocumentação:
+                            <button class="input-file">
+                              <input type="file" name="doc_ad" id="file-input" />
+                              <label for="file-input">Escolher arquivo</label>
+                            </button>
+                        </p>
+                    </td>
+                    <td colspan="2">
+                        <label>Responsável:</label>
+                        <textarea cols="1" rows="1" name="resp_ad" required>{{value[33]}}</textarea>
+                    </td>
+                    <td>
+                        <label>Data e hora:</label>
+                        <textarea cols="1" rows="1" name="time_ad" required>{{value[34]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <p>Exame físico:
+                            {% if value[35]=="cab_na_bo"%}
+                            <input type="checkbox" checked id="cab_na_bo" name="cab_na_bo" value="cab_na_bo">
+                            <label class="cb" for="cab_na_bo">cabeça, narinas, boca</label>
+                            {%else%}
+                            <input type="checkbox" id="cab_na_bo" name="cab_na_bo" value="cab_na_bo">
+                            <label class="cb" for="cab_na_bo">cabeça, narinas, boca</label>
+                            {%endif%}
+                            {% if value[36]=="olhos_ouv"%}
+                            <input type="checkbox" checked id="olhos_ouv" name="olhos_ouv" value="olhos_ouv">
+                            <label class="cb" for="olhos_ouv">olhos, ouvidos</label>
+                            {%else%}
+                            <input type="checkbox" id="olhos_ouv" name="olhos_ouv" value="olhos_ouv">
+                            <label class="cb" for="olhos_ouv">olhos, ouvidos</label>
+                            {%endif%}
+                            {% if value[37]=="fezes"%}
+                            <input type="checkbox" checked id="fezes" name="fezes" value="fezes">
+                            <label class="cb" for="fezes">fezes, cloaca, anûs</label>
+                            {%else%}
+                            <input type="checkbox" id="fezes" name="fezes" value="fezes">
+                            <label class="cb" for="fezes">fezes, cloaca, anûs</label>
+                            {%endif%}
+                            {% if value[38]=="pes"%}
+                            <input type="checkbox" checked id="pes" name="pes" value="pes">
+                            <label class="cb" for="pes">asas, nadadeiras, patas</label>
+                            {%else%}
+                            <input type="checkbox" id="pes" name="pes" value="pes">
+                            <label class="cb" for="pes">asas, nadadeiras, patas</label>
+                            {%endif%}
+                            {% if value[39]=="pele"%}
+                            <input type="checkbox" checked id="pele" name="pele" value="pele">
+                            <label class="cb" for="pele">pele</label>
+                            {%else%}
+                            <input type="checkbox" id="pele" name="pele" value="pele">
+                            <label class="cb" for="pele">pele</label>
+                            {%endif%}
+                            {% if value[40]=="palp_abd"%}
+                            <input type="checkbox" checked id="palp_abd" name="palp_abd" value="palp_abd">
+                            <label class="cb" for="palp_abd">palpação abdominal</label>
+                            {%else%}
+                            <input type="checkbox" id="palp_abd" name="palp_abd" value="palp_abd">
+                            <label class="cb" for="palp_abd">palpação abdominal</label>
+                            {%endif%}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <label>Observações:</label>
+                        <textarea cols="1" rows="1" name="obs_ad" required>{{value[41]}}</textarea>
+                    </td>
+                </tr>
+            </table>
+            <table class="tra">
+                <tr>
+                    <td class="table_name" style="padding:5px" rowspan="11">
+                        <p class="table_name">Tratamentos</p>
+                    </td>
+                    <td>
+                        <label>Droga ou medicamento:</label>
+                    </td>
+                    <td>
+                        <label> Dose(mg/kg ou mg/ave):</label>
+                    </td>
+                    <td>
+                        <label>Via (VO, SC, IM, IV):</label>
+                    </td>
+                    <td>
+                        <label>Frequência<br> (única, SID, BID, QID/<br>Quantos dias):</label>
+                    </td>
+                    <td>
+                        <label>Data início:</label>
+                    </td>
+                    <td>
+                        <label>Data término:</label>
+                    </td>
+                    <td>
+                        <label>Volume (mL):</label>
+                    </td>
+                    <td>
+                        <label>Observações:</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="med1">{{value[42]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="dose1">{{value[47]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="via1">{{value[52]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="freq1">{{value[57]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_init1">{{value[62]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_term1">{{value[67]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="volume1">{{value[72]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="obs_tra1">{{value[77]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="position:relative">
+                        <textarea cols="1" rows="1" name="med2">{{value[43]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="dose2">{{value[48]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="via2">{{value[53]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="freq2">{{value[58]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_init2">{{value[63]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_term2">{{value[68]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="volume2">{{value[73]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="obs_tra2">{{value[78]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="med3">{{value[44]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="dose3">{{value[49]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="via3">{{value[54]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="freq3">{{value[59]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_init3">{{value[64]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_term3">{{value[69]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="volume3">{{value[74]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="obs_tra3">{{value[79]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="med4">{{value[45]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="dose4">{{value[50]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="via4">{{value[55]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="freq4">{{value[60]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_init4">{{value[65]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_term4">{{value[70]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="volume4">{{value[75]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="obs_tra4">{{value[80]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="med5">{{value[46]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="dose5">{{value[51]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="via5">{{value[56]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="freq5">{{value[61]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_init5">{{value[66]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_term5">{{value[71]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="volume5">{{value[76]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="obs_tra5">{{value[81]}}</textarea>
+                    </td>
+                </tr>
+            </table><br>
+            <table class="reab">
+                <tr>
+                    <td class="table_name"  rowspan="10" style="padding:0px">
+                        <p class="table_name" style="padding:2px">Reabilitação</p>
+                    </td>
+                    <td>
+                        <label>Etapa/Procedimento:</label>
+                    </td>
+                    <td>
+                        <label>Data de início:</label>
+                    </td>
+                    <td>
+                        <label>Data de término:</label>
+                    </td>
+                    <td>
+                        <label>Observações:</label>
+                    </td>
+                 <tr>
+                    <td>
+                        {% if value[82]=="hidra_oral"%}
+                        <input type="checkbox" checked id="hidra_oral" name="hidra_oral" value="hidra_oral">
+                        <label class="cb" for="hidra_oral">Hidratação oral</label>
+                        {%else%}
+                        <input type="checkbox" id="hidra_oral" name="hidra_oral" value="hidra_oral">
+                        <label class="cb" for="hidra_oral">Hidratação oral</label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_hidra_init">{{value[105]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_hidra_ter">{{value[106]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="obs_hidra">{{value[107]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if value[83]=="hidra_sub"%}
+                        <input type="checkbox" checked id="hidra_sub" name="hidra_sub" value="hidra_sub">
+                        <label class="cb" for="hidra_sub">Hidratação Subcutânea</label>
+                        {%else%}
+                        <input type="checkbox" id="hidra_sub" name="hidra_sub" value="hidra_sub">
+                        <label class="cb" for="hidra_sub">Hidratação Subcutânea</label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_hidrasub_init">{{value[108]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_hidrasub_ter">{{value[109]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="obs_hidrasub">{{value[110]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if value[84]=="ali_pas"%}
+                        <input type="checkbox" checked id="ali_pas" name="ali_pas" value="ali_pas">
+                        <label class="cb" for="ali_pas">Alimentação Pastosa</label>
+                        {%else%}
+                        <input type="checkbox" id="ali_pas" name="ali_pas" value="ali_pas">
+                        <label class="cb" for="ali_pas">Alimentação Pastosa</label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_alipas_init">{{value[111]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_alipas_ter">{{value[112]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="obs_alipas">{{value[113]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if value[85]=="ali_for"%}
+                        <input type="checkbox" checked id="ali_for" name="ali_for" value="ali_for">
+                        <label class="cb" for="ali_for">Alimentação Sólida Forçada</label>
+                        {%else%}
+                        <input type="checkbox" id="ali_for" name="ali_for" value="ali_for">
+                        <label class="cb" for="ali_for">Alimentação Sólida Forçada</label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_alifor_init">{{value[114]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_alifor_ter">{{value[115]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="obs_alifor">{{value[116]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if value[86]=="ali_sl"%}
+                        <input type="checkbox" checked id="ali_sl" name="ali_sl" value="ali_sl">
+                        <label class="cb" for="ali_sl">Alimentação Sólida Livre</label>
+                        {%else%}
+                        <input type="checkbox" id="ali_sl" name="ali_sl" value="ali_sl">
+                        <label class="cb" for="ali_sl">Alimentação Sólida Livre</label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_alisl_init">{{value[117]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_alisl_ter">{{value[118]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="obs_alisl">{{value[119]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if value[87]=="lavag"%}
+                        <input type="checkbox" checked id="lavag" name="lavag" value="lavag">
+                        <label class="cb" for="lavag">Lavagem</label>
+                        {%else%}
+                        <input type="checkbox" id="lavag" name="lavag" value="lavag">
+                        <label class="cb" for="lavag">Lavagem</label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_lavag_init">{{value[120]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_lavag_ter">{{value[121]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="obs_lavag">{{value[122]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if value[88]=="pisc_ad"%}
+                        <input type="checkbox" checked id="pisc_ad" name="pisc_ad" value="pisc_ad">
+                        <label class="cb" for="pisc_ad">Piscina água doce</label>
+                        {%else%}
+                        <input type="checkbox" id="pisc_ad" name="pisc_ad" value="pisc_ad">
+                        <label class="cb" for="pisc_ad">Piscina água doce</label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_piscad_init">{{value[123]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_piscad_ter">{{value[124]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="obs_piscad">{{value[125]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if value[89]=="pisc_as"%}
+                        <input type="checkbox" checked id="pisc_as" name="pisc_as" value="pisc_as">
+                        <label class="cb" for="pisc_as">Piscina água salgada</label>
+                        {%else%}
+                        <input type="checkbox" id="pisc_as" name="pisc_as" value="pisc_as">
+                        <label class="cb" for="pisc_as">Piscina água salgada</label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_piscas_init">{{value[126]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_piscas_ter">{{value[127]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="obs_piscas">{{value[128]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if value[90]=="md_plu"%}
+                        <input type="checkbox" checked id="md_plu" name="md_plu" value="md_plu">
+                        <label class="cb" for="md_plu">Muda de plumagem</label>
+                        {%else%}
+                        <input type="checkbox" id="md_plu" name="md_plu" value="md_plu">
+                        <label class="cb" for="md_plu">Muda de plumagem</label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_mdplu_init">{{value[129]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="data_mdplu_ter">{{value[130]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="10" name="obs_reab">{{value[91]}}</textarea>
+                    </td>
+                </tr>
+            </table>
+            <table class="sp">
+                <tr>
+                    <td class="table_name" rowspan="14" style="padding:1px">
+                        <p class="table_name" style="padding:0px">Acompanhamento Clínico</p>
+                    </td>
+                    <td>
+                        <label>Data:</label><br>
+                    </td>
+                    <td>
+                        <label>Peso(Kg):</label><br>
+                    </td>
+                    <td>
+                        <label>Cond. Corp:</label><br>
+                    </td>
+                    <td>
+                        <label>Temp.:</label><br>
+                    </td>
+                    <td>
+                        <label>PCV%:</label><br>
+                    </td>
+                    <td>
+                        <label>Bcos%:</label><br>
+                    </td>
+                    <td>
+                        <label>PPT(g/dl):</label><br>
+                    </td>
+                    <td>
+                        <label>Responsável:</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_sp1">{{value_sp[1]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_sp1">{{value_sp[9]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="condi_corp_sp1">{{value_sp[17]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_sp1">{{value_sp[25]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="pcv_sp1">{{value_sp[33]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="bcos_sp1">{{value_sp[41]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="ppt_sp1">{{value_sp[49]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="resp_sp1">{{value_sp[57]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_sp2">{{value_sp[2]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_sp2">{{value_sp[10]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="condi_corp_sp2">{{value_sp[18]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_sp2">{{value_sp[26]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="pcv_sp2">{{value_sp[34]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="bcos_sp2">{{value_sp[42]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="ppt_sp2">{{value_sp[50]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="resp_sp2">{{value_sp[58]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_sp3">{{value_sp[3]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_sp3">{{value_sp[11]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="condi_corp_sp3">{{value_sp[19]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_sp3">{{value_sp[27]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="pcv_sp3">{{value_sp[35]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="bcos_sp3">{{value_sp[43]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="ppt_sp3">{{value_sp[51]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="resp_sp3">{{value_sp[59]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_sp4">{{value_sp[4]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_sp4">{{value_sp[12]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="condi_corp_sp4">{{value_sp[20]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_sp4">{{value_sp[28]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="pcv_sp4">{{value_sp[36]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="bcos_sp4">{{value_sp[44]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="ppt_sp4">{{value_sp[52]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="resp_sp4">{{value_sp[60]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_sp5">{{value_sp[5]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_sp5">{{value_sp[13]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="condi_corp_sp5">{{value_sp[21]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_sp5">{{value_sp[29]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="pcv_sp5">{{value_sp[37]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="bcos_sp5">{{value_sp[45]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="ppt_sp5">{{value_sp[53]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="resp_sp5">{{value_sp[61]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="position:relative">
+                        <textarea cols="1" rows="1" name="data_sp6">{{value_sp[6]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_sp6">{{value_sp[14]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="condi_corp_sp6">{{value_sp[22]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_sp6">{{value_sp[30]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="pcv_sp6">{{value_sp[38]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="bcos_sp6">{{value_sp[46]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="ppt_sp6">{{value_sp[54]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="resp_sp6">{{value_sp[62]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_sp7">{{value_sp[7]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_sp7">{{value_sp[15]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="condi_corp_sp7">{{value_sp[23]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_sp7">{{value_sp[31]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="pcv_sp7">{{value_sp[39]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="bcos_sp7">{{value_sp[47]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="ppt_sp7">{{value_sp[55]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="resp_sp7">{{value_sp[63]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_sp8">{{value_sp[8]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_sp8">{{value_sp[16]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="condi_corp_sp8">{{value_sp[24]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_sp8">{{value_sp[32]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="pcv_sp8">{{value_sp[40]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="bcos_sp8">{{value_sp[48]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="ppt_sp8">{{value_sp[56]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="resp_sp8">{{value_sp[64]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="8">
+                        <label>Observações:</label>
+                        <textarea rows="4" cols="50" name="obs_sp">{{value_sp[65]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="8">
+                        <label>Exames adicionais:</label>
+                        <textarea rows="4" cols="50" name="exad_sp">{{value_sp[66]}}</textarea>
+                    </td>
+                </tr>
+            </table>
+            <table class="tp">
+                <tr>
+                    <td class="table_name" rowspan="25" style="padding:0px">
+                        <p class="table_name" style="padding:0px">Manejo Diário</p>
+                    </td>
+                    <td rowspan="2">
+                        <label>Data:</label><br>
+                    </td>
+                    <td rowspan="2">
+                        <label>Peso(Kg):</label><br>
+                    </td>
+                    <td rowspan="2">
+                        <label>Temp.:</label><br>
+                    </td>
+                    <td colspan="2">
+                        <label>Hidratação:</label><br>
+                    </td>
+                    <td colspan="2">
+                        <label>Alimentação:</label><br>
+                    </td>
+                    <td colspan="2">
+                        <label>Medicação:</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Manhã</label>
+                    </td>
+                    <td>
+                        <label>Tarde</label>
+                    </td>
+                    <td>
+                        <label>Manhã</label>
+                    </td>
+                    <td>
+                        <label>Tarde</label>
+                    </td>
+                    <td>
+                        <label>Manhã</label>
+                    </td>
+                    <td>
+                        <label>Tarde</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp1">{{value_tp[1]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp1">{{value_tp[22]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp1">{{value_tp[43]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[64]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp1" id="mhidra_tp1">
+                        <label for="mhidra_tp1"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp1" id="mhidra_tp1">
+                        <label for="mhidra_tp1"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[85]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp1" name="thidra_tp1">
+                        <label for="thidra_tp1"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp1" name="thidra_tp1">
+                        <label for="thidra_tp1"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[106]=="on"%}
+                        <input type="checkbox" checked name="mali_tp1" id="mali_tp1">
+                        <label for="mali_tp1"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp1" id="mali_tp1">
+                        <label for="mali_tp1"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[127]=="on"%}
+                        <input type="checkbox" checked name="tali_tp1" id="tali_tp1">
+                        <label for="tali_tp1"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp1" id="tali_tp1">
+                        <label for="tali_tp1"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[148]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp1" id="mmed_tp1">
+                        <label for="mmed_tp1"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp1" id="mmed_tp1">
+                        <label for="mmed_tp1"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[169]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp1" id="tmed_tp1">
+                        <label for="tmed_tp1"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp1" id="tmed_tp1">
+                        <label for="tmed_tp1"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp2">{{value_tp[2]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp2">{{value_tp[23]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp2">{{value_tp[44]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[65]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp2" id="mhidra_tp2">
+                        <label for="mhidra_tp2"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp2" id="mhidra_tp2">
+                        <label for="mhidra_tp2"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[86]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp2" name="thidra_tp2">
+                        <label for="thidra_tp2"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp2" name="thidra_tp2">
+                        <label for="thidra_tp2"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[107]=="on"%}
+                        <input type="checkbox" checked name="mali_tp2" id="mali_tp2">
+                        <label for="mali_tp2"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp2" id="mali_tp2">
+                        <label for="mali_tp2"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[128]=="on"%}
+                        <input type="checkbox" checked name="tali_tp2" id="tali_tp2">
+                        <label for="tali_tp2"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp2" id="tali_tp2">
+                        <label for="tali_tp2"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[149]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp2" id="mmed_tp2">
+                        <label for="mmed_tp2"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp2" id="mmed_tp2">
+                        <label for="mmed_tp2"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[170]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp2" id="tmed_tp2">
+                        <label for="tmed_tp2"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp2" id="tmed_tp2">
+                        <label for="tmed_tp2"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp3">{{value_tp[3]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp3">{{value_tp[24]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp3">{{value_tp[45]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[66]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp3" id="mhidra_tp3">
+                        <label for="mhidra_tp3"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp3" id="mhidra_tp3">
+                        <label for="mhidra_tp3"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[87]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp3" name="thidra_tp3">
+                        <label for="thidra_tp3"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp3" name="thidra_tp3">
+                        <label for="thidra_tp3"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[108]=="on"%}
+                        <input type="checkbox" checked name="mali_tp3" id="mali_tp3">
+                        <label for="mali_tp3"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp3" id="mali_tp3">
+                        <label for="mali_tp3"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[129]=="on"%}
+                        <input type="checkbox" checked name="tali_tp3" id="tali_tp3">
+                        <label for="tali_tp3"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp3" id="tali_tp3">
+                        <label for="tali_tp3"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[150]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp3" id="mmed_tp3">
+                        <label for="mmed_tp3"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp3" id="mmed_tp3">
+                        <label for="mmed_tp3"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[171]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp3" id="tmed_tp3">
+                        <label for="tmed_tp3"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp3" id="tmed_tp3">
+                        <label for="tmed_tp3"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp4">{{value_tp[4]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp4">{{value_tp[25]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp4">{{value_tp[46]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[67]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp4" id="mhidra_tp4">
+                        <label for="mhidra_tp4"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp4" id="mhidra_tp4">
+                        <label for="mhidra_tp4"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[88]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp4" name="thidra_tp4">
+                        <label for="thidra_tp4"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp4" name="thidra_tp4">
+                        <label for="thidra_tp4"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[109]=="on"%}
+                        <input type="checkbox" checked name="mali_tp4" id="mali_tp4">
+                        <label for="mali_tp4"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp4" id="mali_tp4">
+                        <label for="mali_tp4"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[130]=="on"%}
+                        <input type="checkbox" checked name="tali_tp4" id="tali_tp4">
+                        <label for="tali_tp4"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp4" id="tali_tp4">
+                        <label for="tali_tp4"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[151]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp4" id="mmed_tp4">
+                        <label for="mmed_tp4"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp4" id="mmed_tp4">
+                        <label for="mmed_tp4"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[172]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp4" id="tmed_tp4">
+                        <label for="tmed_tp4"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp4" id="tmed_tp4">
+                        <label for="tmed_tp4"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp5">{{value_tp[5]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp5">{{value_tp[26]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp5">{{value_tp[47]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[68]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp5" id="mhidra_tp5">
+                        <label for="mhidra_tp5"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp5" id="mhidra_tp5">
+                        <label for="mhidra_tp5"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[89]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp5" name="thidra_tp5">
+                        <label for="thidra_tp5"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp5" name="thidra_tp5">
+                        <label for="thidra_tp5"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[110]=="on"%}
+                        <input type="checkbox" checked name="mali_tp5" id="mali_tp5">
+                        <label for="mali_tp5"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp5" id="mali_tp5">
+                        <label for="mali_tp5"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[131]=="on"%}
+                        <input type="checkbox" checked name="tali_tp5" id="tali_tp5">
+                        <label for="tali_tp5"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp5" id="tali_tp5">
+                        <label for="tali_tp5"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[152]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp5" id="mmed_tp5">
+                        <label for="mmed_tp5"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp5" id="mmed_tp5">
+                        <label for="mmed_tp5"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[173]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp5" id="tmed_tp5">
+                        <label for="tmed_tp5"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp5" id="tmed_tp5">
+                        <label for="tmed_tp5"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp6">{{value_tp[6]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp6">{{value_tp[27]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp6">{{value_tp[48]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[69]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp6" id="mhidra_tp6">
+                        <label for="mhidra_tp6"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp6" id="mhidra_tp6">
+                        <label for="mhidra_tp6"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[90]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp6" name="thidra_tp6">
+                        <label for="thidra_tp6"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp6" name="thidra_tp6">
+                        <label for="thidra_tp6"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[111]=="on"%}
+                        <input type="checkbox" checked name="mali_tp6" id="mali_tp6">
+                        <label for="mali_tp6"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp6" id="mali_tp6">
+                        <label for="mali_tp6"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[132]=="on"%}
+                        <input type="checkbox" checked name="tali_tp6" id="tali_tp6">
+                        <label for="tali_tp6"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp6" id="tali_tp6">
+                        <label for="tali_tp6"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[153]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp6" id="mmed_tp6">
+                        <label for="mmed_tp6"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp6" id="mmed_tp6">
+                        <label for="mmed_tp6"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[174]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp6" id="tmed_tp6">
+                        <label for="tmed_tp6"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp6" id="tmed_tp6">
+                        <label for="tmed_tp6"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp7">{{value_tp[7]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp7">{{value_tp[28]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp7">{{value_tp[49]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[70]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp7" id="mhidra_tp7">
+                        <label for="mhidra_tp7"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp7" id="mhidra_tp7">
+                        <label for="mhidra_tp7"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[91]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp7" name="thidra_tp7">
+                        <label for="thidra_tp7"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp7" name="thidra_tp7">
+                        <label for="thidra_tp7"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[112]=="on"%}
+                        <input type="checkbox" checked name="mali_tp7" id="mali_tp7">
+                        <label for="mali_tp7"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp7" id="mali_tp7">
+                        <label for="mali_tp7"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[133]=="on"%}
+                        <input type="checkbox" checked name="tali_tp7" id="tali_tp7">
+                        <label for="tali_tp7"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp7" id="tali_tp7">
+                        <label for="tali_tp7"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[154]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp7" id="mmed_tp7">
+                        <label for="mmed_tp7"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp7" id="mmed_tp7">
+                        <label for="mmed_tp7"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[175]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp7" id="tmed_tp7">
+                        <label for="tmed_tp7"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp7" id="tmed_tp7">
+                        <label for="tmed_tp7"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp8">{{value_tp[8]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp8">{{value_tp[29]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp8">{{value_tp[50]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[71]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp8" id="mhidra_tp8">
+                        <label for="mhidra_tp8"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp8" id="mhidra_tp8">
+                        <label for="mhidra_tp8"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[92]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp8" name="thidra_tp8">
+                        <label for="thidra_tp8"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp8" name="thidra_tp8">
+                        <label for="thidra_tp8"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[113]=="on"%}
+                        <input type="checkbox" checked name="mali_tp8" id="mali_tp8">
+                        <label for="mali_tp8"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp8" id="mali_tp8">
+                        <label for="mali_tp8"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[134]=="on"%}
+                        <input type="checkbox" checked name="tali_tp8" id="tali_tp8">
+                        <label for="tali_tp8"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp8" id="tali_tp8">
+                        <label for="tali_tp8"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[155]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp8" id="mmed_tp8">
+                        <label for="mmed_tp8"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp8" id="mmed_tp8">
+                        <label for="mmed_tp8"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[176]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp8" id="tmed_tp8">
+                        <label for="tmed_tp8"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp8" id="tmed_tp8">
+                        <label for="tmed_tp8"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp9">{{value_tp[9]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp9">{{value_tp[30]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp9">{{value_tp[51]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[72]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp9" id="mhidra_tp9">
+                        <label for="mhidra_tp9"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp9" id="mhidra_tp9">
+                        <label for="mhidra_tp9"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[93]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp9" name="thidra_tp9">
+                        <label for="thidra_tp9"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp9" name="thidra_tp9">
+                        <label for="thidra_tp9"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[114]=="on"%}
+                        <input type="checkbox" checked name="mali_tp9" id="mali_tp9">
+                        <label for="mali_tp9"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp9" id="mali_tp9">
+                        <label for="mali_tp9"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[135]=="on"%}
+                        <input type="checkbox" checked name="tali_tp9" id="tali_tp9">
+                        <label for="tali_tp9"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp9" id="tali_tp9">
+                        <label for="tali_tp9"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[156]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp9" id="mmed_tp9">
+                        <label for="mmed_tp9"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp9" id="mmed_tp9">
+                        <label for="mmed_tp9"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[177]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp9" id="tmed_tp9">
+                        <label for="tmed_tp9"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp9" id="tmed_tp9">
+                        <label for="tmed_tp9"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp10">{{value_tp[10]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp10">{{value_tp[31]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp10">{{value_tp[52]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[73]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp10" id="mhidra_tp10">
+                        <label for="mhidra_tp10"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp10" id="mhidra_tp10">
+                        <label for="mhidra_tp10"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[94]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp10" name="thidra_tp10">
+                        <label for="thidra_tp10"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp10" name="thidra_tp10">
+                        <label for="thidra_tp10"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[115]=="on"%}
+                        <input type="checkbox" checked name="mali_tp10" id="mali_tp10">
+                        <label for="mali_tp10"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp10" id="mali_tp10">
+                        <label for="mali_tp10"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[136]=="on"%}
+                        <input type="checkbox" checked name="tali_tp10" id="tali_tp10">
+                        <label for="tali_tp10"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp10" id="tali_tp10">
+                        <label for="tali_tp10"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[157]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp10" id="mmed_tp10">
+                        <label for="mmed_tp10"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp10" id="mmed_tp10">
+                        <label for="mmed_tp10"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[178]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp10" id="tmed_tp10">
+                        <label for="tmed_tp10"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp10" id="tmed_tp10">
+                        <label for="tmed_tp10"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="position:relative">
+                        <textarea cols="1" rows="1" name="data_tp11">{{value_tp[11]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp11">{{value_tp[32]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp11">{{value_tp[53]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[74]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp11" id="mhidra_tp11">
+                        <label for="mhidra_tp11"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp11" id="mhidra_tp11">
+                        <label for="mhidra_tp11"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[95]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp11" name="thidra_tp11">
+                        <label for="thidra_tp11"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp11" name="thidra_tp11">
+                        <label for="thidra_tp11"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[116]=="on"%}
+                        <input type="checkbox" checked name="mali_tp11" id="mali_tp11">
+                        <label for="mali_tp11"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp11" id="mali_tp11">
+                        <label for="mali_tp11"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[137]=="on"%}
+                        <input type="checkbox" checked name="tali_tp11" id="tali_tp11">
+                        <label for="tali_tp11"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp11" id="tali_tp11">
+                        <label for="tali_tp11"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[158]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp11" id="mmed_tp11">
+                        <label for="mmed_tp11"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp11" id="mmed_tp11">
+                        <label for="mmed_tp11"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[179]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp11" id="tmed_tp11">
+                        <label for="tmed_tp11"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp11" id="tmed_tp11">
+                        <label for="tmed_tp11"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp12">{{value_tp[12]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp12">{{value_tp[33]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp12">{{value_tp[54]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[75]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp12" id="mhidra_tp12">
+                        <label for="mhidra_tp12"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp12" id="mhidra_tp12">
+                        <label for="mhidra_tp12"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[96]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp12" name="thidra_tp12">
+                        <label for="thidra_tp12"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp12" name="thidra_tp12">
+                        <label for="thidra_tp12"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[117]=="on"%}
+                        <input type="checkbox" checked name="mali_tp12" id="mali_tp12">
+                        <label for="mali_tp12"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp12" id="mali_tp12">
+                        <label for="mali_tp12"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[138]=="on"%}
+                        <input type="checkbox" checked name="tali_tp12" id="tali_tp12">
+                        <label for="tali_tp12"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp12" id="tali_tp12">
+                        <label for="tali_tp12"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[159]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp12" id="mmed_tp12">
+                        <label for="mmed_tp12"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp12" id="mmed_tp12">
+                        <label for="mmed_tp12"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[180]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp12" id="tmed_tp12">
+                        <label for="tmed_tp12"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp12" id="tmed_tp12">
+                        <label for="tmed_tp12"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp13">{{value_tp[13]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp13">{{value_tp[34]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp13">{{value_tp[55]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[76]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp13" id="mhidra_tp13">
+                        <label for="mhidra_tp13"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp13" id="mhidra_tp13">
+                        <label for="mhidra_tp13"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[97]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp13" name="thidra_tp13">
+                        <label for="thidra_tp13"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp13" name="thidra_tp13">
+                        <label for="thidra_tp13"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[118]=="on"%}
+                        <input type="checkbox" checked name="mali_tp13" id="mali_tp13">
+                        <label for="mali_tp13"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp13" id="mali_tp13">
+                        <label for="mali_tp13"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[139]=="on"%}
+                        <input type="checkbox" checked name="tali_tp13" id="tali_tp13">
+                        <label for="tali_tp13"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp13" id="tali_tp13">
+                        <label for="tali_tp13"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[160]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp13" id="mmed_tp13">
+                        <label for="mmed_tp13"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp13" id="mmed_tp13">
+                        <label for="mmed_tp13"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[181]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp13" id="tmed_tp13">
+                        <label for="tmed_tp13"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp13" id="tmed_tp13">
+                        <label for="tmed_tp13"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp14">{{value_tp[14]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp14">{{value_tp[35]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp14">{{value_tp[56]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[77]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp14" id="mhidra_tp14">
+                        <label for="mhidra_tp14"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp14" id="mhidra_tp14">
+                        <label for="mhidra_tp14"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[98]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp14" name="thidra_tp14">
+                        <label for="thidra_tp14"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp14" name="thidra_tp14">
+                        <label for="thidra_tp14"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[119]=="on"%}
+                        <input type="checkbox" checked name="mali_tp14" id="mali_tp14">
+                        <label for="mali_tp14"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp14" id="mali_tp14">
+                        <label for="mali_tp14"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[140]=="on"%}
+                        <input type="checkbox" checked name="tali_tp14" id="tali_tp14">
+                        <label for="tali_tp14"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp14" id="tali_tp14">
+                        <label for="tali_tp14"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[161]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp14" id="mmed_tp14">
+                        <label for="mmed_tp14"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp14" id="mmed_tp14">
+                        <label for="mmed_tp14"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[182]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp14" id="tmed_tp14">
+                        <label for="tmed_tp14"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp14" id="tmed_tp14">
+                        <label for="tmed_tp14"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp15">{{value_tp[15]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp15">{{value_tp[36]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp15">{{value_tp[57]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[78]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp15" id="mhidra_tp15">
+                        <label for="mhidra_tp15"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp15" id="mhidra_tp15">
+                        <label for="mhidra_tp15"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[99]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp15" name="thidra_tp15">
+                        <label for="thidra_tp15"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp15" name="thidra_tp15">
+                        <label for="thidra_tp15"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[120]=="on"%}
+                        <input type="checkbox" checked name="mali_tp15" id="mali_tp15">
+                        <label for="mali_tp15"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp15" id="mali_tp15">
+                        <label for="mali_tp15"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[141]=="on"%}
+                        <input type="checkbox" checked name="tali_tp15" id="tali_tp15">
+                        <label for="tali_tp15"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp15" id="tali_tp15">
+                        <label for="tali_tp15"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[162]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp15" id="mmed_tp15">
+                        <label for="mmed_tp15"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp15" id="mmed_tp15">
+                        <label for="mmed_tp15"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[183]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp15" id="tmed_tp15">
+                        <label for="tmed_tp15"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp15" id="tmed_tp15">
+                        <label for="tmed_tp15"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp16">{{value_tp[16]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp16">{{value_tp[37]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp16">{{value_tp[58]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[79]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp16" id="mhidra_tp16">
+                        <label for="mhidra_tp16"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp16" id="mhidra_tp16">
+                        <label for="mhidra_tp16"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[100]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp16" name="thidra_tp16">
+                        <label for="thidra_tp16"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp16" name="thidra_tp16">
+                        <label for="thidra_tp16"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[121]=="on"%}
+                        <input type="checkbox" checked name="mali_tp16" id="mali_tp16">
+                        <label for="mali_tp16"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp16" id="mali_tp16">
+                        <label for="mali_tp16"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[142]=="on"%}
+                        <input type="checkbox" checked name="tali_tp16" id="tali_tp16">
+                        <label for="tali_tp16"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp16" id="tali_tp16">
+                        <label for="tali_tp16"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[163]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp16" id="mmed_tp16">
+                        <label for="mmed_tp16"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp16" id="mmed_tp16">
+                        <label for="mmed_tp16"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[184]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp16" id="tmed_tp16">
+                        <label for="tmed_tp16"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp16" id="tmed_tp16">
+                        <label for="tmed_tp16"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp17">{{value_tp[17]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp17">{{value_tp[38]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp17">{{value_tp[59]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[80]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp17" id="mhidra_tp17">
+                        <label for="mhidra_tp17"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp17" id="mhidra_tp17">
+                        <label for="mhidra_tp17"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[101]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp17" name="thidra_tp17">
+                        <label for="thidra_tp17"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp17" name="thidra_tp17">
+                        <label for="thidra_tp17"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[122]=="on"%}
+                        <input type="checkbox" checked name="mali_tp17" id="mali_tp17">
+                        <label for="mali_tp17"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp17" id="mali_tp17">
+                        <label for="mali_tp17"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[143]=="on"%}
+                        <input type="checkbox" checked name="tali_tp17" id="tali_tp17">
+                        <label for="tali_tp17"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp17" id="tali_tp17">
+                        <label for="tali_tp17"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[164]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp17" id="mmed_tp17">
+                        <label for="mmed_tp17"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp17" id="mmed_tp17">
+                        <label for="mmed_tp17"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[185]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp17" id="tmed_tp17">
+                        <label for="tmed_tp17"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp17" id="tmed_tp17">
+                        <label for="tmed_tp17"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp18">{{value_tp[18]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp18">{{value_tp[39]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp18">{{value_tp[60]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[81]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp18" id="mhidra_tp18">
+                        <label for="mhidra_tp18"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp18" id="mhidra_tp18">
+                        <label for="mhidra_tp18"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[102]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp18" name="thidra_tp18">
+                        <label for="thidra_tp18"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp18" name="thidra_tp18">
+                        <label for="thidra_tp18"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[123]=="on"%}
+                        <input type="checkbox" checked name="mali_tp18" id="mali_tp18">
+                        <label for="mali_tp18"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp18" id="mali_tp18">
+                        <label for="mali_tp18"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[144]=="on"%}
+                        <input type="checkbox" checked name="tali_tp18" id="tali_tp18">
+                        <label for="tali_tp18"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp18" id="tali_tp18">
+                        <label for="tali_tp18"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[165]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp18" id="mmed_tp18">
+                        <label for="mmed_tp18"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp18" id="mmed_tp18">
+                        <label for="mmed_tp18"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[186]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp18" id="tmed_tp18">
+                        <label for="tmed_tp18"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp18" id="tmed_tp18">
+                        <label for="tmed_tp18"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp19">{{value_tp[19]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp19">{{value_tp[40]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp19">{{value_tp[61]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[82]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp19" id="mhidra_tp19">
+                        <label for="mhidra_tp19"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp19" id="mhidra_tp19">
+                        <label for="mhidra_tp19"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[103]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp19" name="thidra_tp19">
+                        <label for="thidra_tp19"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp19" name="thidra_tp19">
+                        <label for="thidra_tp19"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[124]=="on"%}
+                        <input type="checkbox" checked name="mali_tp19" id="mali_tp19">
+                        <label for="mali_tp19"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp19" id="mali_tp19">
+                        <label for="mali_tp19"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[145]=="on"%}
+                        <input type="checkbox" checked name="tali_tp19" id="tali_tp19">
+                        <label for="tali_tp19"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp19" id="tali_tp19">
+                        <label for="tali_tp19"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[166]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp19" id="mmed_tp19">
+                        <label for="mmed_tp19"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp19" id="mmed_tp19">
+                        <label for="mmed_tp19"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[187]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp19" id="tmed_tp19">
+                        <label for="tmed_tp19"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp19" id="tmed_tp19">
+                        <label for="tmed_tp19"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp20">{{value_tp[20]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp20">{{value_tp[41]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp20">{{value_tp[62]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[83]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp20" id="mhidra_tp20">
+                        <label for="mhidra_tp20"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp20" id="mhidra_tp20">
+                        <label for="mhidra_tp20"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[104]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp20" name="thidra_tp20">
+                        <label for="thidra_tp20"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp20" name="thidra_tp20">
+                        <label for="thidra_tp20"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[125]=="on"%}
+                        <input type="checkbox" checked name="mali_tp20" id="mali_tp20">
+                        <label for="mali_tp20"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp20" id="mali_tp20">
+                        <label for="mali_tp20"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[146]=="on"%}
+                        <input type="checkbox" checked name="tali_tp20" id="tali_tp20">
+                        <label for="tali_tp20"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp20" id="tali_tp20">
+                        <label for="tali_tp20"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[167]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp20" id="mmed_tp20">
+                        <label for="mmed_tp20"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp20" id="mmed_tp20">
+                        <label for="mmed_tp20"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[188]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp20" id="tmed_tp20">
+                        <label for="tmed_tp20"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp20" id="tmed_tp20">
+                        <label for="tmed_tp20"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea cols="1" rows="1" name="data_tp21">{{value_tp[21]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="peso_tp21">{{value_tp[42]}}</textarea>
+                    </td>
+                    <td>
+                        <textarea cols="1" rows="1" name="temp_tp21">{{value_tp[63]}}</textarea>
+                    </td>
+                    <td>
+                        {% if value_tp[84]=="on"%}
+                        <input type="checkbox" checked name="mhidra_tp21" id="mhidra_tp21">
+                        <label for="mhidra_tp21"></label>
+                        {%else%}
+                        <input type="checkbox" name="mhidra_tp21" id="mhidra_tp21">
+                        <label for="mhidra_tp21"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[105]=="on"%}
+                        <input type="checkbox" checked id="thidra_tp21" name="thidra_tp21">
+                        <label for="thidra_tp21"></label>
+                        {%else%}
+                        <input type="checkbox" id="thidra_tp21" name="thidra_tp21">
+                        <label for="thidra_tp21"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[126]=="on"%}
+                        <input type="checkbox" checked name="mali_tp21" id="mali_tp21">
+                        <label for="mali_tp21"></label>
+                        {%else%}
+                        <input type="checkbox" name="mali_tp21" id="mali_tp21">
+                        <label for="mali_tp21"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[147]=="on"%}
+                        <input type="checkbox" checked name="tali_tp21" id="tali_tp21">
+                        <label for="tali_tp21"></label>
+                        {%else%}
+                        <input type="checkbox" name="tali_tp21" id="tali_tp21">
+                        <label for="tali_tp21"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[168]=="on"%}
+                        <input type="checkbox" checked name="mmed_tp21" id="mmed_tp21">
+                        <label for="mmed_tp21"></label>
+                        {%else%}
+                        <input type="checkbox" name="mmed_tp21" id="mmed_tp21">
+                        <label for="mmed_tp21"></label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {% if value_tp[189]=="on"%}
+                        <input type="checkbox" checked name="tmed_tp21" id="tmed_tp21">
+                        <label for="tmed_tp21"></label>
+                        {%else%}
+                        <input type="checkbox" name="tmed_tp21" id="tmed_tp21">
+                        <label for="tmed_tp21"></label>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="9">
+                        <label>Observações:</label>
+                        <textarea cols="5" rows="4" name="obs_tp">{{value_tp[190]}}</textarea>
+                    </td>
+                </tr>
+            </table>
+            <table class="acomp">
+                <tr>
+                    <td class="table_name" rowspan="25" style="padding:0px">
+                        <p class="table_name" style="padding:2px">Acompanhamento</p>
+                    </td>
+                    <td colspan="9">
+                        <label>Procedimentos/Resultados Clínicos/Observações</label>
+                        <textarea rows="4" cols="50" name="acompanhamento">{{value_tp[191]}}</textarea>
+                    </td>
+                </tr>
+            </table><br>
+            <table class="reab">
+                <tr>
+                    <td class="table_name" style="padding:4px" rowspan="9">
+                        <p class="table_name" style="padding:0px">Destinação</p>
+                    </td>
+                    <td>
+                        {% if value[92]=="lib"%}
+                        <input type="checkbox" checked id="lib" name="lib" value="lib">
+                        <label for="lib"> Liberação</label>
+                        {%else%}
+                        <input type="checkbox" id="lib" name="lib" value="lib">
+                        <label for="lib"> Liberação</label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        <label> Local e/ou GPS</label>
+                        <textarea rows="1" cols="1" name="local_dest" >{{value[93]}}</textarea>
+                    </td>
+                    <td >
+                        <label>Responsável:</label>
+                        <textarea rows="1" cols="1" name="resp_dest" required>{{value[94]}}</textarea>
+                    </td>
+                    <td>
+                        <label>Data e hora:</label>
+                        <textarea rows="1" cols="1" name="time_dest" required>{{value[95]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if value[96]=="obito"%}
+                        <input type="checkbox" checked id="obito" name="obito" value="obito">
+                        <label for="obito"> Óbito</label>
+                        {%else%}
+                        <input type="checkbox" id="obito" name="obito" value="obito">
+                        <label for="obito"> Óbito</label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        <label>Diagnóstico preliminar:</label>
+                        <textarea rows="1" cols="1" name="pre_diag">{{value[97]}}</textarea>
+                    </td>
+                    <td rowspan="3" colspan="2">
+                        <p>Documentação adcional: <br><br>
+                            Fotodocumentação:{{value[98]}}<br>
+                            Ficha de biometria:{{value[100]}}<br><br>
+                             Fotodocumentação:
+                            <button class="input-file">
+                              <input type="file" id="file" name="foto_doc_dest"/>
+                              <label for="file-input">Escolher arquivo</label>
+                            </button><br>
+                            Ficha de biometria:
+                            <button class="input-file">
+                              <input type="file" id="file_bio" name="file_bio"/>
+                              <label for="file-input">Escolher arquivo</label>
+                            </button><br>
+
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if value[101]=="eutanasia"%}
+                        <input type="checkbox" checked id="eutanasia" name="eutanasia" value="eutanasia">
+                        <label for="eutanasia"> Eutanásia</label>
+                        {%else%}
+                        <input type="checkbox" id="eutanasia" name="eutanasia" value="eutanasia">
+                        <label for="eutanasia"> Eutanásia</label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        <label>Justificativa:</label>
+                        <textarea rows="1" cols="1" name="justif">{{value[102]}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if value[103]=="transf"%}
+                        <input type="checkbox" checked id="transf" name="transf" value="transf">
+                        <label for="transf">Transferência</label>
+                        {%else%}
+                        <input type="checkbox" id="transf" name="transf" value="transf">
+                        <label for="transf">Transferência</label>
+                        {%endif%}
+                    </td>
+                    <td>
+                        <label>Destino:</label>
+                        <textarea rows="1" cols="1" name="dest">{{value[104]}}</textarea>
+                    </td>
+                </tr>
+            </table>
+                <br><input class="ml" type="submit" value="Enviar">
+        </form>
+    </div>
+</div>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+      text-decoration: none;
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+    body{
+       background-color: #f3f5f9;
+    }
+
+    .wrapper{
+      display: flex;
+      position: relative;
+    }
+
+    .wrapper .sidebar{
+      width: 200px;
+      height: 100%;
+      background: #2caad3;
+      padding: 30px 0px;
+      position: fixed;
+    }
+
+    .wrapper .sidebar h2{
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .wrapper .sidebar ul li{
+      padding: 15px;
+      border-bottom: 1px solid #bdb8d7;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    :required:after {
+      border: 1px dashed red;
+    }
+
+    .wrapper .sidebar ul li a{
+      color: #fff;
+      display: block;
+    }
+
+    .wrapper .sidebar ul li a .fas{
+      width: 25px;
+    }
+
+    .wrapper .sidebar ul li:hover{
+      background-color: #57c6eb;
+    }
+
+    .wrapper .sidebar ul li:hover a{
+      color: #fff;
+    }
+
+    .wrapper .main_content{
+      width: 100%;
+      margin-left: 200px;
+    }
+
+    .wrapper .main_content .header{
+      padding: 20px;
+      background: #fff;
+      color: #717171;
+      border-bottom: 1px solid #e0e4e8;
+    }
+
+    .wrapper .main_content .info{
+      margin: 20px;
+      color: #717171;
+      line-height: 25px;
+    }
+
+    .wrapper .main_content .info div{
+      margin-bottom: 0px;
+    }
+     .tra td, .sp td, .tp td{
+        padding:5px;
+    }
+    .title{
+      font-size: 1.1em;
+      font-weight: 700;
+      background-color: #2caad3;
+      color: #FFF;
+      padding:10px;
+      text-transform: uppercase;
+      width: 100%;
+      text-align: center;
+    }
+
+    form{
+      padding: 2px;
+      width: 100%;
+    }
+    input{
+      border:none;
+      margin-bottom: 15px;
+      align-items: center;
+      size: 10px;
+    }
+    form{
+        margin-top: 0px;
+    }
+
+    form, input{
+        margin-bottom: 15px;
+    }
+
+    input:last-child{
+        margin-bottom: 0;
+    }
+
+    input[type="text"], textarea{
+        width: 100%;
+        border-radius: 3px;
+        border: 1px solid #9597a6;
+        padding: 10px;
+        outline: none;
+    }
+    .table_name{
+      -ms-writing-mode: tb-rl;
+      -webkit-writing-mode: vertical-rl;
+      writing-mode: vertical-rl;
+      transform: rotate(270deg);
+      white-space: nowrap;
+      border: none;
+      padding: 3px;
+    }
+    .re, .sp, .tp, .acomp{
+        width: 100%;
+        margin-top:10px;
+    }
+    .cap, .ad, .reab{
+        width: 100%;
+        margin-bottom:20px;
+    }
+
+    .nb{
+        border:1px solid #2caad3;
+        padding: 30px;
+    }
+
+    td{
+        border: 1px solid #aaa;
+        padding: 20px;
+        margin-bottom:20px;
+    }
+
+
+    /* Base for label styling */
+	[type="checkbox"]:not(:checked),
+	[type="checkbox"]:checked {
+	    margin-bottom:10px;
+		position: absolute;
+		left: 0;
+		opacity: 0.01;
+	}
+	[type="checkbox"]:not(:checked) + label,
+	[type="checkbox"]:checked + label {
+		position: relative;
+		padding-left: 2.3em;
+		line-height: 1.7;
+		cursor: pointer;
+	}
+
+	/* checkbox aspect */
+	[type="checkbox"]:not(:checked) + label:before,
+	[type="checkbox"]:checked + label:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 1em;
+		height: 1em;
+		border: 1px solid #aaa;
+		background: #FFF;
+		border-radius: .2em;
+		box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 rgba(203, 34, 237, .2);
+		-webkit-transition: all .275s;
+				transition: all .275s;
+	}
+
+	/* checked mark aspect */
+	[type="checkbox"]:not(:checked) + label:after,
+	[type="checkbox"]:checked + label:after {
+		content: 'X';
+		position: absolute;
+		top: .7em;
+		left: .18em;
+		color: #2caad3;
+		line-height: 0;
+		-webkit-transition: all .2s;
+				transition: all .2s;
+	}
+
+	/* checked mark aspect changes */
+	[type="checkbox"]:not(:checked) + label:after {
+		opacity: 0;
+		-webkit-transform: scale(0) rotate(45deg);
+				transform: scale(0) rotate(45deg);
+	}
+
+	[type="checkbox"]:checked + label:after {
+		opacity: 1;
+		-webkit-transform: scale(1) rotate(0);
+				transform: scale(1) rotate(0);
+	}
+
+	/* Disabled checkbox */
+	[type="checkbox"]:disabled:not(:checked) + label:before,
+	[type="checkbox"]:disabled:checked + label:before {
+		box-shadow: none;
+		border-color: #bbb;
+		background-color: #e9e9e9;
+	}
+
+	[type="checkbox"]:disabled:checked + label:after {
+		color: #777;
+	}
+
+	[type="checkbox"]:disabled + label {
+		color: #aaa;
+	}
+
+    .cb{
+        color:#828489;
+        font-size: 13px;
+    }
+
+    .input-file {
+      position: relative;
+      overflow: hidden;
+      width: 150px;
+      height: 20px;
+      border: 1px solid #aaa;
+	  background: #FFF;
+		border-radius: .2em;
+		cursor: pointer;
+      transition: background-color .3s ease;
+    }
+
+    .input-file [type = file] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .input-file label {
+      font-family: 'Josefin Sans', sans-serif;
+      color: #1788d8;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    input[type="submit"]{
+      font-family: 'Josefin Sans', sans-serif;
+      width: 150px;
+      height: 50px;
+      font-size: 1em;
+      color: #fff;
+      border: 1px solid #aaa;
+	  background-color: red;
+	  border-radius: .2em;
+	  aling:center;
+	  display:inline;
+    }
+    input[type="submit"]:hover{
+      background-color: #57c6eb;
+    }
+
+    .ml{
+        margin-left:500px;
+    }
+    .tp td{
+        text-align:center;
+    }
+</style>
