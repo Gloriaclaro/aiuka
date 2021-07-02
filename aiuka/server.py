@@ -1,5 +1,5 @@
 from flask import Flask, session, redirect, request, render_template
-
+import datetime
 import sys
 cli = sys.modules['flask.cli']
 cli.show_server_banner = lambda *x: None
@@ -76,12 +76,12 @@ def reab():
             value = value.strip()
             #value = value.replace("\n", "")
             values[f'{key}'] = value
-
         insert_into_reabilitacao.insert_data(values)
         insert_into_reabilitacao_sp.insert_data(values)
         insert_into_reabilitacao_tp.insert_data(values)
-
-    return render_template('reabilitacao.html')
+    teste = "000"
+    year = datetime.date.today().year
+    return render_template('reabilitacao.html', teste = teste, year = year)
 
 
 @app.route('/necropsia', methods=['GET', 'POST'])

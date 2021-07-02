@@ -25,12 +25,33 @@
                         <p class="table_name">Identificação</p>
                     </td>
                     <td>
-                        <label>Número de registro:</label>
-                        <input type="text" name="re" placeholder="<Número de registro>" required>
+                        <label>Número de registro: {{teste}}/{{year}}</label>
+                    </td>
+                    <td>
+                        <label>Registro complementar:</label>
+                        <input type="text" name="re_comple" placeholder="<Registro complementar>" required>
+                    </td>
+                    <td>
+                        <label for="tipo_idtemp">Tipo:</label>
+                        <select name="tipo_idtemp" id="tipo_idtemp">
+                          <option value="anilha">Anilha</option>
+                          <option value="brinco">Brinco</option>
+                          <option value="lacre">Lacre</option>
+                          <option value="microchip">Microchip</option>
+                        </select>
                     </td>
                     <td>
                         <label> Identificação temporária:</label>
                         <input type="text" name="idtemp" placeholder="<Identificação temporária>">
+                    </td>
+                    <td>
+                        <label for="tipo_idperm">Tipo:</label>
+                        <select name="tipo_idperm" id="tipo_idperm">
+                          <option value="anilha">Anilha</option>
+                          <option value="brinco">Brinco</option>
+                          <option value="lacre">Lacre</option>
+                          <option value="microchip">Microchip</option>
+                        </select>
                     </td>
                     <td>
                         <label> Identificação permanente:</label>
@@ -39,8 +60,29 @@
                 </tr>
                 <tr>
                     <td>
+                        <label for="tipo_incidente">Tipo do incidente:</label>
+                        <select name="tipo_incidente" id="tipo_incidente">
+                          <option value="incendio">Incendio</option>
+                          <option value="vazamento_oleo">Vazamento de óleo</option>
+                          <option value="rompimento_barragem">Rompimento de barragem</option>
+                          <option value="outras_emergencias">Outras emergências</option>
+                          <option value="rotina">Rotina</option>
+                          <option value="acionamento">Acionamento</option>
+                        </select>
+                    </td>
+                    <td colspan="2">
                         <label>Incidente:</label>
                         <input type="text" name="incidente" placeholder="<Incidente>" required>
+                    </td>
+                    <td>
+                        <label for="classe">classe:</label>
+                        <select name="classe" id="classe">
+                          <option value="anfibio">Anfíbios</option>
+                          <option value="aves">Aves</option>
+                          <option value="mamiferos">Mamíferos</option>
+                          <option value="repteis">Répteis</option>
+                          <option value="peixes">Peixes</option>
+                        </select>
                     </td>
                     <td>
                         <label>Espécie:</label>
@@ -62,12 +104,39 @@
                         <input type="text" name="local" placeholder="<Local e/ou GPS>" required>
                     </td>
                     <td>
-                        <label>Responsável:</label>
-                        <input type="text" name="resp" placeholder="<Responsável>" required>
+                        <label for="resp">Responsável:</label>
+                         <select name="resp" id="resp">
+                          <option value="resp1">Aline</option>
+                          <option value="resp2">Diogo</option>
+                          <option value="resp3">Driellie</option>
+                          <option value="resp4">Gabriel</option>
+                          <option value="resp5">Hudson</option>
+                          <option value="resp6">Jamenson</option>
+                          <option value="resp7">Jessica</option>
+                          <option value="resp8">José</option>
+                          <option value="resp9">Juan</option>
+                          <option value="resp10">Maria Clara</option>
+                          <option value="resp11">Mirella</option>
+                          <option value="resp12">Murilo</option>
+                          <option value="resp13">Natália</option>
+                          <option value="resp14">Paulo</option>
+                          <option value="resp15">Renato</option>
+                          <option value="resp16">Tamiris</option>
+                          <option value="resp17">Tatiana</option>
+                          <option value="resp18">Valeria</option>
+                          <option value="resp19">Viviane</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label for="base">Base operacional:</label>
+                        <select name="base" id="base">
+                          <option value="rj">COP RJ</option>
+                          <option value="sp">COP SP</option>
+                        </select>
                     </td>
                     <td>
                         <label>Data e hora:</label>
-                        <input type="text" name="time" placeholder="<Data e Hora>" required>
+                        <input type="date" name="time" placeholder="<Data e Hora>" required>
                     </td>
                 </tr>
                 <tr>
@@ -84,7 +153,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <label>Histórico:</label>
                         <input size="35px" type="text" name="historico" placeholder="<Histórico>" required>
                     </td>
@@ -102,7 +171,7 @@
                         <label>CPF/RG:</label><br>
                         <input type="text" size="35px" name="cpf_rg" placeholder="<CPF ou RG>">
                     </td>
-                    <td>
+                    <td colspan="2">
                         <label>Endereço/Telefone:</label><br>
                         <input type="text" size="50px" name="cep_tel" placeholder="<Endereço/telefone>">
                     </td>
@@ -170,13 +239,13 @@
                     <td colspan="4">
                         <p>Condição corporal: <br><br>
                             <input type="radio" id="caquetico" name="condi_corp" value="caquetico" required>
-                            <label class="cb" for="caquetico">Caquético</label>
+                            <label class="cb" for="caquetico">Ruim(1)</label>
                             <input type="radio" id="magro" name="condi_corp" value="magro">
-                            <label class="cb" for="magro">Magro</label>
+                            <label class="cb" for="magro">Regular(2)</label>
                             <input class="cb" type="radio" id="bom" name="condi_corp" value="bom">
-                            <label class="cb" for="bom">Bom</label>
+                            <label class="cb" for="bom">Boa(3)</label>
                             <input type="radio" id="otimo" name="condi_corp" value="otimo">
-                            <label class="cb" for="otimo">Ótimo</label>
+                            <label class="cb" for="otimo">Ótima(4)</label>
                         </p>
                     </td>
                     <td colspan="3">
@@ -256,11 +325,31 @@
                     </td>
                     <td colspan="2">
                         <label>Responsável:</label>
-                        <input type="text" name="resp_ad" placeholder="<Responsável>" required>
+                        <select name="resp_ad" id="resp_ad" required>
+                          <option value="resp1">Aline</option>
+                          <option value="resp2">Diogo</option>
+                          <option value="resp3">Driellie</option>
+                          <option value="resp4">Gabriel</option>
+                          <option value="resp5">Hudson</option>
+                          <option value="resp6">Jamenson</option>
+                          <option value="resp7">Jessica</option>
+                          <option value="resp8">José</option>
+                          <option value="resp9">Juan</option>
+                          <option value="resp10">Maria Clara</option>
+                          <option value="resp11">Mirella</option>
+                          <option value="resp12">Murilo</option>
+                          <option value="resp13">Natália</option>
+                          <option value="resp14">Paulo</option>
+                          <option value="resp15">Renato</option>
+                          <option value="resp16">Tamiris</option>
+                          <option value="resp17">Tatiana</option>
+                          <option value="resp18">Valeria</option>
+                          <option value="resp19">Viviane</option>
+                        </select>
                     </td>
                     <td>
                         <label>Data e hora:</label>
-                        <input type="text" name="time_ad" placeholder="<Data e Hora>" required>
+                        <input type="date" name="time_ad" placeholder="<Data e Hora>" required>
                     </td>
                 </tr>
                 <tr>
@@ -297,13 +386,36 @@
                         <label>Droga ou medicamento:</label>
                     </td>
                     <td>
-                        <label> Dose(mg/kg ou mg/ave):</label>
+                        <p>
+                            <label> Dose:</label>
+                            <select style="max-width:60%;" name="dose" id="dose">
+                                <option value="mg_kg">mg/kg</option>
+                                <option value="mg_animal">mg/animal</option>
+                            </select>
+                        </p>
                     </td>
                     <td>
-                        <label>Via (VO, SC, IM, IV):</label>
+                        <p>
+                            <label> Via:</label>
+                            <select style="max-width:55%;" name="via" id="via">
+                                <option value="VO">VO</option>
+                                <option value="SC">SC</option>
+                                <option value="IM">IM</option>
+                                <option value="IV">IV</option>
+                            </select>
+                        </p>
                     </td>
                     <td>
-                        <label>Frequência <br> (única, SID, BID, QID/<br>Quantos dias):</label>
+                        <p>
+                            <label> Freq.:</label>
+                            <select style="max-width:55%;" name="freq" id="freq">
+                                <option value="unica">Dose única</option>
+                                <option value="sid">SID</option>
+                                <option value="bid">BID</option>
+                                <option value="tid">TID</option>
+                                <option value="qid">QID</option>
+                            </select>
+                        </p>
                     </td>
                     <td>
                         <label>Data início:</label>
@@ -332,10 +444,10 @@
                         <input type="text"  size="3px" name="freq1" placeholder="<Freq.>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_init1" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_init1" placeholder="<Data>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_term1" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_term1" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="5px" name="volume1" placeholder="<volume>">
@@ -358,10 +470,10 @@
                         <input type="text"  size="3px" name="freq2" placeholder="<Freq.>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_init2" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_init2" placeholder="<Data>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_term2" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_term2" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="5px" name="volume2" placeholder="<volume>">
@@ -384,10 +496,10 @@
                         <input type="text"  size="3px" name="freq3" placeholder="<Freq.>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_init3" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_init3" placeholder="<Data>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_term3" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_term3" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="5px" name="volume3" placeholder="<volume>">
@@ -410,10 +522,10 @@
                         <input type="text"  size="3px" name="freq4" placeholder="<Freq.>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_init4" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_init4" placeholder="<Data>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_term4" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_term4" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="5px" name="volume4" placeholder="<volume>">
@@ -436,10 +548,10 @@
                         <input type="text"  size="3px" name="freq5" placeholder="<Freq.>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_init5" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_init5" placeholder="<Data>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_term5" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_term5" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="5px" name="volume5" placeholder="<volume>">
@@ -474,10 +586,10 @@
                         <label for="hidra_oral">Hidratação oral</label>
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_hidra_init" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_hidra_init" placeholder="<Data>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_hidra_ter" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_hidra_ter" placeholder="<Data>">
                     </td>
                     <td>
                         <textarea rows="1" cols="50" name="obs_hidra" placeholder="Obs..."></textarea>
@@ -489,10 +601,10 @@
                         <label for="hidra_sub">Hidratação Subcutânea</label>
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_hidrasub_init" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_hidrasub_init" placeholder="<Data>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_hidrasub_ter" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_hidrasub_ter" placeholder="<Data>">
                     </td>
                     <td>
                         <textarea rows="1" cols="50" name="obs_hidrasub" placeholder="Obs..."></textarea>
@@ -504,10 +616,10 @@
                         <label for="ali_pas">Alimentação Pastosa</label>
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_alipas_init" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_alipas_init" placeholder="<Data>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_alipas_ter" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_alipas_ter" placeholder="<Data>">
                     </td>
                     <td>
                         <textarea rows="1" cols="50" name="obs_alipas" placeholder="Obs..."></textarea>
@@ -519,10 +631,10 @@
                         <label for="ali_for">Alimentação Sólida Forçada</label><br><br>
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_alifor_init" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_alifor_init" placeholder="<Data>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_alifor_ter" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_alifor_ter" placeholder="<Data>">
                     </td>
                     <td>
                         <textarea rows="1" cols="50" name="obs_alifor" placeholder="Obs..."></textarea>
@@ -534,10 +646,10 @@
                         <label for="ali_sl">Alimentação Sólida Livre</label>
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_alisl_init" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_alisl_init" placeholder="<Data>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_alisl_ter" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_alisl_ter" placeholder="<Data>">
                     </td>
                     <td>
                         <textarea rows="1" cols="50" name="obs_alisl" placeholder="Obs..."></textarea>
@@ -549,10 +661,10 @@
                         <label for="lavag">Lavagem</label>
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_lavag_init" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_lavag_init" placeholder="<Data>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_lavag_ter" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_lavag_ter" placeholder="<Data>">
                     </td>
                     <td>
                         <textarea rows="1" cols="50" name="obs_lavag" placeholder="Obs..."></textarea>
@@ -564,10 +676,10 @@
                         <label for="pisc_ad">Piscina água doce</label>
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_piscad_init" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_piscad_init" placeholder="<Data>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_piscad_ter" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_piscad_ter" placeholder="<Data>">
                     </td>
                     <td>
                         <textarea rows="1" cols="50" name="obs_piscad" placeholder="Obs..."></textarea>
@@ -579,10 +691,10 @@
                         <label for="pisc_as">Piscina água salgada</label>
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_piscas_init" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_piscas_init" placeholder="<Data>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_piscas_ter" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_piscas_ter" placeholder="<Data>">
                     </td>
                     <td>
                         <textarea rows="1" cols="50" name="obs_piscas" placeholder="Obs..."></textarea>
@@ -594,10 +706,10 @@
                         <label for="md_plu">Muda de plumagem</label>
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_mdplu_init" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_mdplu_init" placeholder="<Data>">
                     </td>
                     <td>
-                        <input type="text" size="4px" name="data_mdplu_ter" placeholder="<Data>">
+                        <input type="date" size="4px" name="data_mdplu_ter" placeholder="<Data>">
                     </td>
                     <td>
                         <textarea rows="1" cols="50" name="obs_reab" placeholder="Obs..."></textarea>
@@ -636,13 +748,18 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_sp1" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_sp1" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="7px" name="peso_sp1" placeholder="<Peso>">
                     </td>
                     <td>
-                        <input type="text"  size="10px" name="condi_corp_sp1" placeholder="<Cond. corp.>">
+                        <select name="condi_corp_sp1" id="condi_corp_sp1">
+                          <option value="otima">Ótima(4)</option>
+                          <option value="boa">Boa(3)</option>
+                          <option value="regular">Regular(2)</option>
+                          <option value="regular">Ruim(1)</option>
+                        </select>
                     </td>
                     <td>
                         <input type="text"  size="10px" name="temp_sp1" placeholder="<Temp.>">
@@ -657,18 +774,43 @@
                         <input type="text"  size="7px" name="ppt_sp1" placeholder="<PPT>">
                     </td>
                     <td>
-                        <input type="text"  size="7px" name="resp_sp1" placeholder="<Responsável>">
+                        <select name="resp_sp1" id="resp_sp1">
+                          <option value="resp1">Aline</option>
+                          <option value="resp2">Diogo</option>
+                          <option value="resp3">Driellie</option>
+                          <option value="resp4">Gabriel</option>
+                          <option value="resp5">Hudson</option>
+                          <option value="resp6">Jamenson</option>
+                          <option value="resp7">Jessica</option>
+                          <option value="resp8">José</option>
+                          <option value="resp9">Juan</option>
+                          <option value="resp10">Maria Clara</option>
+                          <option value="resp11">Mirella</option>
+                          <option value="resp12">Murilo</option>
+                          <option value="resp13">Natália</option>
+                          <option value="resp14">Paulo</option>
+                          <option value="resp15">Renato</option>
+                          <option value="resp16">Tamiris</option>
+                          <option value="resp17">Tatiana</option>
+                          <option value="resp18">Valeria</option>
+                          <option value="resp19">Viviane</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_sp2" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_sp2" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="7px" name="peso_sp2" placeholder="<Peso>">
                     </td>
                     <td>
-                        <input type="text"  size="10px" name="condi_corp_sp2" placeholder="<Cond. corp.>">
+                        <select name="condi_corp_sp2" id="condi_corp_sp2">
+                          <option value="otima">Ótima(4)</option>
+                          <option value="boa">Boa(3)</option>
+                          <option value="regular">Regular(2)</option>
+                          <option value="regular">Ruim(1)</option>
+                        </select>
                     </td>
                     <td>
                         <input type="text"  size="10px" name="temp_sp2" placeholder="<Temp.>">
@@ -683,19 +825,43 @@
                         <input type="text"  size="7px" name="ppt_sp2" placeholder="<PPT>">
                     </td>
                     <td>
-                        <input type="text"  size="7px" name="resp_sp2" placeholder="<Responsável>">
+                        <select name="resp" id="resp_sp2">
+                          <option value="resp1">Aline</option>
+                          <option value="resp2">Diogo</option>
+                          <option value="resp3">Driellie</option>
+                          <option value="resp4">Gabriel</option>
+                          <option value="resp5">Hudson</option>
+                          <option value="resp6">Jamenson</option>
+                          <option value="resp7">Jessica</option>
+                          <option value="resp8">José</option>
+                          <option value="resp9">Juan</option>
+                          <option value="resp10">Maria Clara</option>
+                          <option value="resp11">Mirella</option>
+                          <option value="resp12">Murilo</option>
+                          <option value="resp13">Natália</option>
+                          <option value="resp14">Paulo</option>
+                          <option value="resp15">Renato</option>
+                          <option value="resp16">Tamiris</option>
+                          <option value="resp17">Tatiana</option>
+                          <option value="resp18">Valeria</option>
+                          <option value="resp19">Viviane</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_sp3" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_sp3" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="7px" name="peso_sp3" placeholder="<Peso>">
                     </td>
                     <td>
-                        <input type="text"  size="10px" name="condi_corp_sp3" placeholder="<Cond. corp.>">
-                    </td>
+                        <select name="condi_corp_sp3" id="condi_corp_sp3">
+                          <option value="otima">Ótima(4)</option>
+                          <option value="boa">Boa(3)</option>
+                          <option value="regular">Regular(2)</option>
+                          <option value="regular">Ruim(1)</option>
+                        </select>                    </td>
                     <td>
                         <input type="text"  size="10px" name="temp_sp3" placeholder="<Temp.>">
                     </td>
@@ -709,18 +875,43 @@
                         <input type="text"  size="7px" name="ppt_sp3" placeholder="<PPT>">
                     </td>
                     <td>
-                        <input type="text"  size="7px" name="resp_sp3" placeholder="<Responsável>">
+                        <select name="resp" id="resp_sp3">
+                          <option value="resp1">Aline</option>
+                          <option value="resp2">Diogo</option>
+                          <option value="resp3">Driellie</option>
+                          <option value="resp4">Gabriel</option>
+                          <option value="resp5">Hudson</option>
+                          <option value="resp6">Jamenson</option>
+                          <option value="resp7">Jessica</option>
+                          <option value="resp8">José</option>
+                          <option value="resp9">Juan</option>
+                          <option value="resp10">Maria Clara</option>
+                          <option value="resp11">Mirella</option>
+                          <option value="resp12">Murilo</option>
+                          <option value="resp13">Natália</option>
+                          <option value="resp14">Paulo</option>
+                          <option value="resp15">Renato</option>
+                          <option value="resp16">Tamiris</option>
+                          <option value="resp17">Tatiana</option>
+                          <option value="resp18">Valeria</option>
+                          <option value="resp19">Viviane</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_sp4" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_sp4" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="7px" name="peso_sp4" placeholder="<Peso>">
                     </td>
                     <td>
-                        <input type="text"  size="10px" name="condi_corp_sp4" placeholder="<Cond. corp.>">
+                        <select name="condi_corp_sp4" id="condi_corp_sp4">
+                          <option value="otima">Ótima(4)</option>
+                          <option value="boa">Boa(3)</option>
+                          <option value="regular">Regular(2)</option>
+                          <option value="regular">Ruim(1)</option>
+                        </select>
                     </td>
                     <td>
                         <input type="text"  size="10px" name="temp_sp4" placeholder="<Temp.>">
@@ -735,18 +926,42 @@
                         <input type="text"  size="7px" name="ppt_sp4" placeholder="<PPT>">
                     </td>
                     <td>
-                        <input type="text"  size="7px" name="resp_sp4" placeholder="<Responsável>">
-                    </td>
+                        <select name="resp" id="resp_sp4">
+                          <option value="resp1">Aline</option>
+                          <option value="resp2">Diogo</option>
+                          <option value="resp3">Driellie</option>
+                          <option value="resp4">Gabriel</option>
+                          <option value="resp5">Hudson</option>
+                          <option value="resp6">Jamenson</option>
+                          <option value="resp7">Jessica</option>
+                          <option value="resp8">José</option>
+                          <option value="resp9">Juan</option>
+                          <option value="resp10">Maria Clara</option>
+                          <option value="resp11">Mirella</option>
+                          <option value="resp12">Murilo</option>
+                          <option value="resp13">Natália</option>
+                          <option value="resp14">Paulo</option>
+                          <option value="resp15">Renato</option>
+                          <option value="resp16">Tamiris</option>
+                          <option value="resp17">Tatiana</option>
+                          <option value="resp18">Valeria</option>
+                          <option value="resp19">Viviane</option>
+                        </select>                    </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_sp5" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_sp5" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="7px" name="peso_sp5" placeholder="<Peso>">
                     </td>
                     <td>
-                        <input type="text"  size="10px" name="condi_corp_sp5" placeholder="<Cond. corp.>">
+                        <select name="condi_corp_sp5" id="condi_corp_sp5">
+                          <option value="otima">Ótima(4)</option>
+                          <option value="boa">Boa(3)</option>
+                          <option value="regular">Regular(2)</option>
+                          <option value="regular">Ruim(1)</option>
+                        </select>
                     </td>
                     <td>
                         <input type="text"  size="10px" name="temp_sp5" placeholder="<Temp.>">
@@ -761,18 +976,43 @@
                         <input type="text"  size="7px" name="ppt_sp5" placeholder="<PPT>">
                     </td>
                     <td>
-                        <input type="text"  size="7px" name="resp_sp5" placeholder="<Responsável>">
+                        <select name="resp" id="resp_sp5">
+                          <option value="resp1">Aline</option>
+                          <option value="resp2">Diogo</option>
+                          <option value="resp3">Driellie</option>
+                          <option value="resp4">Gabriel</option>
+                          <option value="resp5">Hudson</option>
+                          <option value="resp6">Jamenson</option>
+                          <option value="resp7">Jessica</option>
+                          <option value="resp8">José</option>
+                          <option value="resp9">Juan</option>
+                          <option value="resp10">Maria Clara</option>
+                          <option value="resp11">Mirella</option>
+                          <option value="resp12">Murilo</option>
+                          <option value="resp13">Natália</option>
+                          <option value="resp14">Paulo</option>
+                          <option value="resp15">Renato</option>
+                          <option value="resp16">Tamiris</option>
+                          <option value="resp17">Tatiana</option>
+                          <option value="resp18">Valeria</option>
+                          <option value="resp19">Viviane</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td style="position:relative">
-                        <input type="text" size="10px" name="data_sp6" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_sp6" placeholder="<Data>">
                     </td>
                     <td style="position:relative">
                         <input type="text" size="7px" name="peso_sp6" placeholder="<Peso>">
                     </td>
                     <td style="position:relative">
-                        <input type="text"  size="10px" name="condi_corp_sp6" placeholder="<Cond. corp.>">
+                        <select name="condi_corp_sp6" id="condi_corp_sp6">
+                          <option value="otima">Ótima(4)</option>
+                          <option value="boa">Boa(3)</option>
+                          <option value="regular">Regular(2)</option>
+                          <option value="regular">Ruim(1)</option>
+                        </select>
                     </td>
                     <td style="position:relative">
                         <input type="text"  size="10px" name="temp_sp6" placeholder="<Temp.>">
@@ -787,18 +1027,43 @@
                         <input type="text"  size="7px" name="ppt_sp6" placeholder="<PPT>">
                     </td>
                     <td>
-                        <input type="text"  size="7px" name="resp_sp6" placeholder="<Responsável>">
+                        <select name="resp" id="resp_sp6">
+                          <option value="resp1">Aline</option>
+                          <option value="resp2">Diogo</option>
+                          <option value="resp3">Driellie</option>
+                          <option value="resp4">Gabriel</option>
+                          <option value="resp5">Hudson</option>
+                          <option value="resp6">Jamenson</option>
+                          <option value="resp7">Jessica</option>
+                          <option value="resp8">José</option>
+                          <option value="resp9">Juan</option>
+                          <option value="resp10">Maria Clara</option>
+                          <option value="resp11">Mirella</option>
+                          <option value="resp12">Murilo</option>
+                          <option value="resp13">Natália</option>
+                          <option value="resp14">Paulo</option>
+                          <option value="resp15">Renato</option>
+                          <option value="resp16">Tamiris</option>
+                          <option value="resp17">Tatiana</option>
+                          <option value="resp18">Valeria</option>
+                          <option value="resp19">Viviane</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_sp7" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_sp7" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="7px" name="peso_sp7" placeholder="<Peso>">
                     </td>
                     <td>
-                        <input type="text"  size="10px" name="condi_corp_sp7" placeholder="<Cond. corp.>">
+                        <select name="condi_corp_sp7" id="condi_corp_sp7">
+                          <option value="otima">Ótima(4)</option>
+                          <option value="boa">Boa(3)</option>
+                          <option value="regular">Regular(2)</option>
+                          <option value="regular">Ruim(1)</option>
+                        </select>
                     </td>
                     <td>
                         <input type="text"  size="10px" name="temp_sp7" placeholder="<Temp.>">
@@ -813,18 +1078,43 @@
                         <input type="text"  size="7px" name="ppt_sp7" placeholder="<PPT>">
                     </td>
                     <td>
-                        <input type="text"  size="7px" name="resp_sp7" placeholder="<Responsável>">
+                        <select name="resp" id="resp_sp7">
+                          <option value="resp1">Aline</option>
+                          <option value="resp2">Diogo</option>
+                          <option value="resp3">Driellie</option>
+                          <option value="resp4">Gabriel</option>
+                          <option value="resp5">Hudson</option>
+                          <option value="resp6">Jamenson</option>
+                          <option value="resp7">Jessica</option>
+                          <option value="resp8">José</option>
+                          <option value="resp9">Juan</option>
+                          <option value="resp10">Maria Clara</option>
+                          <option value="resp11">Mirella</option>
+                          <option value="resp12">Murilo</option>
+                          <option value="resp13">Natália</option>
+                          <option value="resp14">Paulo</option>
+                          <option value="resp15">Renato</option>
+                          <option value="resp16">Tamiris</option>
+                          <option value="resp17">Tatiana</option>
+                          <option value="resp18">Valeria</option>
+                          <option value="resp19">Viviane</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_sp8" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_sp8" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="7px" name="peso_sp8" placeholder="<Peso>">
                     </td>
                     <td>
-                        <input type="text"  size="10px" name="condi_corp_sp8" placeholder="<Cond. corp.>">
+                        <select name="condi_corp_sp8" id="condi_corp_sp8">
+                          <option value="otima">Ótima(4)</option>
+                          <option value="boa">Boa(3)</option>
+                          <option value="regular">Regular(2)</option>
+                          <option value="regular">Ruim(1)</option>
+                        </select>
                     </td>
                     <td>
                         <input type="text"  size="10px" name="temp_sp8" placeholder="<Temp.>">
@@ -839,7 +1129,27 @@
                         <input type="text"  size="7px" name="ppt_sp8" placeholder="<PPT>">
                     </td>
                     <td>
-                        <input type="text"  size="7px" name="resp_sp8" placeholder="<Responsável>">
+                        <select name="resp" id="resp_sp8">
+                          <option value="resp1">Aline</option>
+                          <option value="resp2">Diogo</option>
+                          <option value="resp3">Driellie</option>
+                          <option value="resp4">Gabriel</option>
+                          <option value="resp5">Hudson</option>
+                          <option value="resp6">Jamenson</option>
+                          <option value="resp7">Jessica</option>
+                          <option value="resp8">José</option>
+                          <option value="resp9">Juan</option>
+                          <option value="resp10">Maria Clara</option>
+                          <option value="resp11">Mirella</option>
+                          <option value="resp12">Murilo</option>
+                          <option value="resp13">Natália</option>
+                          <option value="resp14">Paulo</option>
+                          <option value="resp15">Renato</option>
+                          <option value="resp16">Tamiris</option>
+                          <option value="resp17">Tatiana</option>
+                          <option value="resp18">Valeria</option>
+                          <option value="resp19">Viviane</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -901,7 +1211,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp1" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp1" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp1" placeholder="<Peso>">
@@ -936,7 +1246,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp2" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp2" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp2" placeholder="<Peso>">
@@ -971,7 +1281,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp3" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp3" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp3" placeholder="<Peso>">
@@ -1006,7 +1316,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp4" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp4" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp4" placeholder="<Peso>">
@@ -1041,7 +1351,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp5" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp5" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp5" placeholder="<Peso>">
@@ -1076,7 +1386,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp6" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp6" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp6" placeholder="<Peso>">
@@ -1111,7 +1421,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp7" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp7" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp7" placeholder="<Peso>">
@@ -1146,7 +1456,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp8" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp8" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp8" placeholder="<Peso>">
@@ -1181,7 +1491,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp9" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp9" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp9" placeholder="<Peso>">
@@ -1216,7 +1526,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp10" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp10" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp10" placeholder="<Peso>">
@@ -1251,7 +1561,7 @@
                 </tr>
                 <tr>
                     <td style="position:relative">
-                        <input type="text" size="10px" name="data_tp11" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp11" placeholder="<Data>">
                     </td>
                     <td style="position:relative">
                         <input type="text" size="10px" name="peso_tp11" placeholder="<Peso>">
@@ -1286,7 +1596,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp12" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp12" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp12" placeholder="<Peso>">
@@ -1321,7 +1631,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp13" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp13" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp13" placeholder="<Peso>">
@@ -1356,7 +1666,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp14" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp14" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp14" placeholder="<Peso>">
@@ -1391,7 +1701,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp15" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp15" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp15" placeholder="<Peso>">
@@ -1426,7 +1736,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp16" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp16" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp16" placeholder="<Peso>">
@@ -1461,7 +1771,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp17" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp17" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp17" placeholder="<Peso>">
@@ -1496,7 +1806,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp18" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp18" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp18" placeholder="<Peso>">
@@ -1531,7 +1841,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp19" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp19" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp19" placeholder="<Peso>">
@@ -1566,7 +1876,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp20" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp20" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp20" placeholder="<Peso>">
@@ -1601,7 +1911,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10px" name="data_tp21" placeholder="<Data>">
+                        <input type="date" size="10px" name="data_tp21" placeholder="<Data>">
                     </td>
                     <td>
                         <input type="text" size="10px" name="peso_tp21" placeholder="<Peso>">
@@ -1657,9 +1967,13 @@
                     <td class="table_name" rowspan="9" style="padding:1px">
                         <p class="table_name">Destinação</p>
                     </td>
-                    <td>
-                        <input type="checkbox" id="lib" name="lib" value="lib">
-                        <label for="lib"> Liberação</label>
+                    <td rowspan="4">
+                            <select size="6" name="Evolucao" id="evolucao">
+                                <option value="eutanasia">Eutanásia</option>
+                                <option value="obito">Óbito</option>
+                                <option value="soltura">Soltura</option>
+                                <option value="transf_vivo">Transferência vivo</option>
+                            </select>
                     </td>
                     <td>
                         <label> Local e/ou GPS</label>
@@ -1667,18 +1981,34 @@
                     </td>
                     <td >
                         <label>Responsável:</label>
-                        <input type="text" name="resp_dest" placeholder="<Responsável>" required>
+                        <select name="resp_dest" id="resp_dest" required>
+                          <option value="resp1">Aline</option>
+                          <option value="resp2">Diogo</option>
+                          <option value="resp3">Driellie</option>
+                          <option value="resp4">Gabriel</option>
+                          <option value="resp5">Hudson</option>
+                          <option value="resp6">Jamenson</option>
+                          <option value="resp7">Jessica</option>
+                          <option value="resp8">José</option>
+                          <option value="resp9">Juan</option>
+                          <option value="resp10">Maria Clara</option>
+                          <option value="resp11">Mirella</option>
+                          <option value="resp12">Murilo</option>
+                          <option value="resp13">Natália</option>
+                          <option value="resp14">Paulo</option>
+                          <option value="resp15">Renato</option>
+                          <option value="resp16">Tamiris</option>
+                          <option value="resp17">Tatiana</option>
+                          <option value="resp18">Valeria</option>
+                          <option value="resp19">Viviane</option>
+                        </select>
                     </td>
                     <td>
                         <label>Data e hora:</label>
-                        <input type="text" size="7px" name="time_dest" placeholder="<Data e Hora>" required>
+                        <input type="date" size="7px" name="time_dest" placeholder="<Data e Hora>" required>
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <input type="checkbox" id="obito" name="obito" value="obito">
-                        <label for="obito"> Óbito</label>
-                    </td>
                     <td>
                         <label>Diagnóstico preliminar:</label>
                         <input type="text" size="7px" name="pre_diag" placeholder="<Diagnóstico preliminar>">
@@ -1700,22 +2030,21 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="checkbox" id="eutanasia" name="eutanasia" value="eutanasia">
-                        <label for="eutanasia"> Eutanásia</label>
-                    </td>
-                    <td>
                         <label>Justificativa:</label>
                         <input type="text" size="7px" name="justif" placeholder="<Justificativa>">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="checkbox" id="transf" name="transf" value="transf">
-                        <label for="transf">Transferência</label>
-                    </td>
-                    <td>
-                        <label>Destino:</label>
-                        <input type="text" size="7px" name="dest" placeholder="<Destino>">
+                        <label for="dest">Destino:</label>
+                        <select name="dest" id="dest">
+                            <option value="cativeiro">Cativeiro</option>
+                            <option value="colecao_cientifica">Coleção Científica</option>
+                            <option value="descarte_pgr">Descarte PGR</option>
+                            <option value="ensino_pesquisa">Ensino e Pesquisa</option>
+                            <option value="habitat">Habitat Natural</option>
+                            <option value="transfer_caca">Transferência carcaça</option>
+                        </select>
                     </td>
                 </tr>
             </table>
@@ -1820,7 +2149,7 @@
       padding: 2px;
       width: 100%;
     }
-    input{
+    input, select, option{
       border:none;
       margin-bottom: 15px;
       align-items: center;
@@ -1838,11 +2167,15 @@
         margin-bottom: 0;
     }
 
+    select:last-child{
+        margin-bottom: 0;
+    }
+
     .tra td, .sp td, .tp td{
         padding:5px;
     }
 
-    input[type="text"], textarea{
+    input[type="text"],select, option, textarea{
         width: 100%;
         border-radius: 3px;
         border: 1px solid #9597a6;
