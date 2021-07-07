@@ -10,6 +10,8 @@ from insert_data import insert_into_reabilitacao, insert_into_necropsia, insert_
     insert_into_reabilitacao_tp
 from get_db_data import get_data_from_reabilitacao, get_data_from_reabilitacao_sp, get_data_from_reabilitacao_tp, \
     get_data_from_necropsia
+
+
 app = Flask('aiuka')
 app.config['SECRET_KEY'] = "A0Zr98j/3yX R~XHH!jmN]LWX/,?RT"
 
@@ -25,6 +27,27 @@ def buscar():
         elif 'imprimir' in request.form:
             return redirect('/imprimir')
     return render_template('aiuka.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        if 'login' in request.form:
+            return redirect('/')
+    return render_template('login.html')
+
+
+@app.route('/registro', methods=['GET', 'POST'])
+def registro():
+    if request.method == 'POST':
+        session['re'] = request.form['re']
+        global registro
+        registro = request.form['re']
+        if 'atualizar' in request.form:
+            return redirect('/alterar_reabilitacao')
+        elif 'imprimir' in request.form:
+            return redirect('/imprimir')
+    return render_template('register.html')
 
 
 @app.route('/escolher', methods=['GET', 'POST'])
