@@ -1,15 +1,16 @@
 from flask import Flask, session, redirect, request, render_template
 import datetime
 import sys
+import bcrypt
 cli = sys.modules['flask.cli']
 cli.show_server_banner = lambda *x: None
 
 
 from delete_db_data import delete_from_reabilitacao, delete_from_reabilitacao_sp, delete_from_reabilitacao_tp
 from insert_data import insert_into_reabilitacao, insert_into_necropsia, insert_into_reabilitacao_sp,\
-    insert_into_reabilitacao_tp
+    insert_into_reabilitacao_tp, insert_into_login
 from get_db_data import get_data_from_reabilitacao, get_data_from_reabilitacao_sp, get_data_from_reabilitacao_tp, \
-    get_data_from_necropsia
+    get_data_from_necropsia, get_data_from_login
 
 
 app = Flask('aiuka')
@@ -32,21 +33,39 @@ def buscar():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        if 'login' in request.form:
+        global login
+        email = request.form['email']
+        senha = request.form['senha']
+
+        try:
+            data = get_data_from_login.select_data(email)
+        except Exception as error:
+            login = False
+            return redirect('/error')
+        hashed = data[1].encode('utf8')
+        senha = bcrypt.hashpw(senha.encode('utf8'), bcrypt.gensalt())
+        print(senha)
+        print(hashed)
+        if bcrypt.checkpw(senha, hashed):
+            login = True
             return redirect('/')
+        else:
+            return redirect('/error')
     return render_template('login.html')
 
 
 @app.route('/registro', methods=['GET', 'POST'])
 def registro():
     if request.method == 'POST':
-        session['re'] = request.form['re']
-        global registro
-        registro = request.form['re']
-        if 'atualizar' in request.form:
-            return redirect('/alterar_reabilitacao')
-        elif 'imprimir' in request.form:
-            return redirect('/imprimir')
+        values = {}
+        for key in request.form.keys():
+            value = str(request.form[f'{key}'])
+            value = value.strip()
+            values[f'{key}'] = value
+            if key == 'senha':
+                values[f'{key}'] = bcrypt.hashpw(value.encode('utf8'), bcrypt.gensalt())
+        insert_into_login.insert_data(values)
+        return redirect('/login')
     return render_template('register.html')
 
 
