@@ -1,7 +1,7 @@
 from flask import Flask, session, redirect, request, render_template
 import datetime
 import sys
-import bcrypt
+import hashlib
 cli = sys.modules['flask.cli']
 cli.show_server_banner = lambda *x: None
 
@@ -15,10 +15,14 @@ from get_db_data import get_data_from_reabilitacao, get_data_from_reabilitacao_s
 
 app = Flask('aiuka')
 app.config['SECRET_KEY'] = "A0Zr98j/3yX R~XHH!jmN]LWX/,?RT"
+global logged
+logged = False
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/home', methods=['GET', 'POST'])
 def buscar():
+    if not logged:
+        return redirect('/error')
     if request.method == 'POST':
         session['re'] = request.form['re']
         global registro
@@ -30,25 +34,23 @@ def buscar():
     return render_template('aiuka.html')
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def login():
+    global logged
+    logged = False
     if request.method == 'POST':
-        global login
         email = request.form['email']
         senha = request.form['senha']
-
         try:
             data = get_data_from_login.select_data(email)
         except Exception as error:
-            login = False
+            logged = False
             return redirect('/error')
-        hashed = data[1].encode('utf8')
-        senha = bcrypt.hashpw(senha.encode('utf8'), bcrypt.gensalt())
-        print(senha)
-        print(hashed)
-        if bcrypt.checkpw(senha, hashed):
-            login = True
-            return redirect('/')
+        hashed = data[1]
+        senha = hashlib.sha512(bytes(senha.encode('utf-8')))
+        if senha.hexdigest() == hashed:
+            logged = True
+            return redirect('/home')
         else:
             return redirect('/error')
     return render_template('login.html')
@@ -56,6 +58,7 @@ def login():
 
 @app.route('/registro', methods=['GET', 'POST'])
 def registro():
+    logged = False
     if request.method == 'POST':
         values = {}
         for key in request.form.keys():
@@ -63,14 +66,16 @@ def registro():
             value = value.strip()
             values[f'{key}'] = value
             if key == 'senha':
-                values[f'{key}'] = bcrypt.hashpw(value.encode('utf8'), bcrypt.gensalt())
+                values[f'{key}'] = hashlib.sha512(bytes(value.encode('utf-8'))).hexdigest()
         insert_into_login.insert_data(values)
-        return redirect('/login')
+        return redirect('/')
     return render_template('register.html')
 
 
 @app.route('/escolher', methods=['GET', 'POST'])
 def escolher():
+    if not logged:
+        return redirect('/error')
     if request.method == 'POST':
         if 'reabilitacao' in request.form:
             return redirect('/print_reabilitacao')
@@ -81,6 +86,8 @@ def escolher():
 
 @app.route('/reabilitacao', methods=['GET', 'POST'])
 def reab():
+    if not logged:
+        return redirect('/error')
     if request.method == 'POST':
         values = {'hidratacao_vo': None, 'hidratacao_sc': None, 'aquecimento': None, 'sexo': None,
                   'auscul': None, 'petro_ex': None, 'petro': None, 'cab_na_bo': None, 'olhos_ouv': None, 'fezes': None,
@@ -128,6 +135,8 @@ def reab():
 
 @app.route('/necropsia', methods=['GET', 'POST'])
 def necro():
+    if not logged:
+        return redirect('/error')
     if request.method == 'POST':
         values = {'petro_ex': None, 'petro' : None,'ectoparasitase': None, 'sexo': None, 'traq': None,
                   'alteracoes_traq': None, 'formol_traq': None, 'congel_traq': None, 'fotos_traq': None, 'saco_ae': None,
@@ -175,6 +184,8 @@ def necro():
 
 @app.route('/imprimir', methods=['GET', 'POST'])
 def print_form():
+    if not logged:
+        return redirect('/error')
     try:
         try:
             value_necro = get_data_from_necropsia.select_data(registro)
@@ -216,6 +227,8 @@ def print_form():
 
 @app.route('/print_reabilitacao', methods=['GET', 'POST'])
 def print_reabilitacao():
+    if not logged:
+        return redirect('/error')
     try:
         value = get_data_from_reabilitacao.select_data(registro)
         value_sp = get_data_from_reabilitacao_sp.select_data(registro)
@@ -248,6 +261,8 @@ def print_reabilitacao():
 
 @app.route('/print_necropsia', methods=['GET', 'POST'])
 def print_necropsia():
+    if not logged:
+        return redirect('/error')
     try:
         try:
             value = get_data_from_necropsia.select_data(registro)
@@ -267,12 +282,14 @@ def print_necropsia():
 @app.route('/error', methods=['GET', 'POST'])
 def error():
     if request.method == 'POST':
-        return redirect('/')
+        return redirect('/home')
     return render_template('error.html')
 
 
 @app.route('/alterar_reabilitacao', methods=['GET', 'POST'])
 def alter_reabilitacao():
+    if not logged:
+        return redirect('/error')
     try:
         last_files = get_data_from_reabilitacao.select_data(registro)
         if request.method == 'POST':
