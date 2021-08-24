@@ -1,6 +1,3 @@
-import sys
-sys.path.insert(1, 'C:/Users/Mult-e/PycharmProjects/aiuka')
-
 import dbconnector
 
 # GET CURSOR
@@ -10,6 +7,8 @@ cursor = dbconnector.cursor
 # CREATE TABLE
 def create_table():
     cursor.execute("CREATE TABLE reabilitacao (id INT AUTO_INCREMENT PRIMARY KEY, re text NOT NULL,"
+                   " re_comple text NOT NULL,tipo_idtemp text NOT NULL, tipo_idperm text NOT NULL,"
+                   " tipo_incidente text NOT NULL, classe text NOT NULL,"
                    " idtemp text NOT NULL, idperm text NOT NULL, incidente text NOT NULL,"
                    " especie text NOT NULL, local text NOT NULL, resp text NOT NULL,"
                    " date_time text NOT NULL, hidratacao_vo text, hidratacao_sc text, "

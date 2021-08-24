@@ -1,6 +1,3 @@
-import sys
-sys.path.insert(1, 'C:/Users/Mult-e/PycharmProjects/aiuka')
-
 import dbconnector
 
 # GET CURSOR

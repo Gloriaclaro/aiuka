@@ -1,6 +1,3 @@
-import sys
-sys.path.insert(1, 'C:/Users/Mult-e/PycharmProjects/aiuka')
-
 import dbconnector
 
 con = dbconnector.con
@@ -9,6 +6,7 @@ cursor = dbconnector.cursor
 
 def insert_data(values):
     cursor.execute("insert into reabilitacao (re, idtemp, idperm, incidente, especie, local, resp, date_time,"
+                   " re_comple, tipo_idtemp, tipo_idperm, tipo_incidente, classe, "
                    " hidratacao_vo, hidratacao_sc, aquecimento, estabilização_outro, historico, num_bo,"
                    " nome_entrega, cpf_rg, cep_tel, peso, freq_resp, freq_card, temp, hematocrio, PPT, glicose,"
                    " grupo_etario, sexo, condicao_corporal, desidratacao, atitude, auscultacao,"
@@ -32,10 +30,11 @@ def insert_data(values):
                    " %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,"
                    " %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,"
                    " %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,"
-                   " %s,%s,%s,%s,%s,%s,%s )",
+                   " %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s )",
                    (values['re'], values['idtemp'], values['idperm'], values['incidente'], values['especie'],
-                    values['local'], values['resp'], values['time'], values['hidratacao_vo'], values['hidratacao_sc'],
-                    values['aquecimento'], values['est_outro'], values['historico'], values['num_bo'], values['nome_entrega'],
+                    values['local'], values['resp'], values['time'], values['re_comple'], values['tipo_idtemp'],
+                    values['tipo_idperm'], values['tipo_incidente'], values['classe'], values['hidratacao_vo'],
+                    values['hidratacao_sc'], values['aquecimento'], values['est_outro'], values['historico'], values['num_bo'], values['nome_entrega'],
                     values['cpf_rg'], values['cep_tel'], values['peso'], values['freq_resp'], values['freq_card'],
                     values['temp'], values['hema'], values['ppt'], values['glic'], values['g_et'],
                     values['sexo'], values['condi_corp'], values['desidra'], values['att'], values['auscul'],

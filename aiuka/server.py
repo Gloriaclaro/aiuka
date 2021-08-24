@@ -89,7 +89,9 @@ def reab():
     if not logged:
         return redirect('/error')
     if request.method == 'POST':
-        values = {'hidratacao_vo': None, 'hidratacao_sc': None, 'aquecimento': None, 'sexo': None,
+        year = datetime.date.today().year
+        year = f"/year"
+        values = {'re': year, 'hidratacao_vo': None, 'hidratacao_sc': None, 'aquecimento': None, 'sexo': None,
                   'auscul': None, 'petro_ex': None, 'petro': None, 'cab_na_bo': None, 'olhos_ouv': None, 'fezes': None,
                   'pes': None, 'pele': None, 'palp_abd': None, 'hidra_oral': None, 'hidra_sub': None, 'ali_pas': None,
                   'ali_for': None, 'ali_sl': None, 'lavag': None, 'pisc_ad': None, 'pisc_as': None, 'md_plu': None,
@@ -128,9 +130,7 @@ def reab():
         insert_into_reabilitacao.insert_data(values)
         insert_into_reabilitacao_sp.insert_data(values)
         insert_into_reabilitacao_tp.insert_data(values)
-    teste = "000"
-    year = datetime.date.today().year
-    return render_template('reabilitacao.html', teste = teste, year = year)
+    return render_template('reabilitacao.html')
 
 
 @app.route('/necropsia', methods=['GET', 'POST'])
@@ -282,7 +282,7 @@ def print_necropsia():
 @app.route('/error', methods=['GET', 'POST'])
 def error():
     if request.method == 'POST':
-        return redirect('/home')
+        return redirect('/')
     return render_template('error.html')
 
 
