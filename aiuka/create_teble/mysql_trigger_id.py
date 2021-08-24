@@ -9,6 +9,7 @@ def trigger_id():
                         ON reabilitacao
                         FOR EACH ROW
                         BEGIN
-                        SET NEW.re = CONCAT(NEW.id, NEW.re);
+                        SET @lastID = (SELECT id FROM reabilitacao ORDER BY id DESC LIMIT 1);
+                        SET NEW.re = CONCAT(@lastID, NEW.re);
                         END""")
 

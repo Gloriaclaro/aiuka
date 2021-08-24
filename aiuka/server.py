@@ -90,7 +90,7 @@ def reab():
         return redirect('/error')
     if request.method == 'POST':
         year = datetime.date.today().year
-        year = f"/year"
+        year = f"/{year}"
         values = {'re': year, 'hidratacao_vo': None, 'hidratacao_sc': None, 'aquecimento': None, 'sexo': None,
                   'auscul': None, 'petro_ex': None, 'petro': None, 'cab_na_bo': None, 'olhos_ouv': None, 'fezes': None,
                   'pes': None, 'pele': None, 'palp_abd': None, 'hidra_oral': None, 'hidra_sub': None, 'ali_pas': None,
