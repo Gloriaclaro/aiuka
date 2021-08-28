@@ -291,6 +291,7 @@ def alter_reabilitacao():
     if not logged:
         return redirect('/error')
     try:
+        print(registro)
         last_files = get_data_from_reabilitacao.select_data(registro)
         if request.method == 'POST':
             values = {'hidratacao_vo': None, 'est_outro':None, 'hidratacao_sc': None, 'aquecimento': None, 'sexo': None,
@@ -364,6 +365,7 @@ def alter_reabilitacao():
                                value_sp=get_data_from_reabilitacao_sp.select_data(registro),
                                value_tp=get_data_from_reabilitacao_tp.select_data(registro))
     except Exception as err:
+        print(err)
         return redirect('/error')
 
 
