@@ -44,6 +44,6 @@ def create_table():
                    " obs_alifor text, data_alisl_init text, data_alisl_ter text, obs_alisl text, data_lavag_init text, "
                    " data_lavag_ter text, obs_lavag text, data_piscad_init text, data_piscad_ter text, obs_piscad text,"
                    " data_piscas_init text,  data_piscas_ter text, obs_piscas text, data_mdplu_init text, "
-                   " data_mdplu_ter text, re_comple text NOT NULL, tipo_idtemp text NOT NULL, tipo_idperm text NOT NULL,"
+                   " data_mdplu_ter text, tipo_idtemp text NOT NULL, tipo_idperm text NOT NULL,"
                    " tipo_incidente text NOT NULL, classe text NOT NULL)")
 

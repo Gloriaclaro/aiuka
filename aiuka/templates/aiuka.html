@@ -24,6 +24,21 @@
                     <input name="atualizar" type="submit"  value="Atualizar">
                 </form>
 			</div>
+            <div>
+                <label>Histórico de registros</label>
+                <table>
+                 {%for i in range(0, len)%}
+                    <tr>
+                        <td>
+                            <li>{{len-i}}</li>
+                        </td>
+                        <td>
+                            <li>{{value[i]}}</li>
+                        </td>
+                    </tr>
+                 {%endfor%}
+                </table>
+            </div>
 		</div>
     </div>
 </div>
@@ -38,8 +53,19 @@
       text-decoration: none;
       font-family: 'Josefin Sans', sans-serif;
     }
+    td{
+        border: 1px solid #aaa;
+        padding: 10px;
+        text-align: center;
+    }
 
-
+    label{
+        margin-top: 100px;
+        text-align: center;
+        color: cornflowerblue;
+        font-size: 3em;
+        font-weight: 800;
+    }
     body {
         background-color: #2222;
         background-size: 100% 100%;
@@ -197,6 +223,10 @@
         font-size: 20px;
     }
 
+    div {
+        margin-bottom:200px;
+    }
+
 
     .ml{
         margin-top:50px;
@@ -217,5 +247,7 @@
     input[type="submit"]:hover{
       background-color: #57c6eb;
     }
+
+
 
 </style>

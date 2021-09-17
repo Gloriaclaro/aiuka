@@ -6,7 +6,6 @@ cursor = dbconnector.cursor
 
 def insert_data(values):
     cursor.execute("insert into reabilitacao (re, idtemp, idperm, incidente, especie, local, resp, date_time,"
-                   " re_comple, tipo_idtemp, tipo_idperm, tipo_incidente, classe, "
                    " hidratacao_vo, hidratacao_sc, aquecimento, estabilização_outro, historico, num_bo,"
                    " nome_entrega, cpf_rg, cep_tel, peso, freq_resp, freq_card, temp, hematocrio, PPT, glicose,"
                    " grupo_etario, sexo, condicao_corporal, desidratacao, atitude, auscultacao,"
@@ -25,15 +24,14 @@ def insert_data(values):
                    " obs_alifor, data_alisl_init, data_alisl_ter, obs_alisl, data_lavag_init, "
                    " data_lavag_ter, obs_lavag, data_piscad_init, data_piscad_ter, obs_piscad,"
                    " data_piscas_init,  data_piscas_ter, obs_piscas, data_mdplu_init, "
-                   " data_mdplu_ter)"
+                   " data_mdplu_ter, tipo_idtemp, tipo_idperm, tipo_incidente, classe)"
                    " values ( %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,"
                    " %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,"
                    " %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,"
                    " %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,"
-                   " %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s )",
+                   " %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s )",
                    (values['re'], values['idtemp'], values['idperm'], values['incidente'], values['especie'],
-                    values['local'], values['resp'], values['time'], values['re_comple'], values['tipo_idtemp'],
-                    values['tipo_idperm'], values['tipo_incidente'], values['classe'], values['hidratacao_vo'],
+                    values['local'], values['resp'], values['time'],  values['hidratacao_vo'],
                     values['hidratacao_sc'], values['aquecimento'], values['est_outro'], values['historico'], values['num_bo'], values['nome_entrega'],
                     values['cpf_rg'], values['cep_tel'], values['peso'], values['freq_resp'], values['freq_card'],
                     values['temp'], values['hema'], values['ppt'], values['glic'], values['g_et'],
@@ -59,5 +57,6 @@ def insert_data(values):
                     values['obs_alifor'], values['data_alisl_init'], values['data_alisl_ter'], values['obs_alisl'],
                     values['data_lavag_init'], values['data_lavag_ter'], values['obs_lavag'], values['data_piscad_init'],
                     values['data_piscad_ter'], values['obs_piscad'], values['data_piscas_init'],  values['data_piscas_ter'],
-                    values['obs_piscas'], values['data_mdplu_init'], values['data_mdplu_ter']))
+                    values['obs_piscas'], values['data_mdplu_init'], values['data_mdplu_ter'], values['tipo_idtemp'],
+                    values['tipo_idperm'], values['tipo_incidente'], values['classe']))
     con.commit()

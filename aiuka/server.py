@@ -10,8 +10,7 @@ from delete_db_data import delete_from_reabilitacao, delete_from_reabilitacao_sp
 from insert_data import insert_into_reabilitacao, insert_into_necropsia, insert_into_reabilitacao_sp,\
     insert_into_reabilitacao_tp, insert_into_login
 from get_db_data import get_data_from_reabilitacao, get_data_from_reabilitacao_sp, get_data_from_reabilitacao_tp, \
-    get_data_from_necropsia, get_data_from_login
-
+    get_data_from_necropsia, get_data_from_login, get_history_from_reabilitacao
 
 app = Flask('aiuka')
 app.config['SECRET_KEY'] = "A0Zr98j/3yX R~XHH!jmN]LWX/,?RT"
@@ -21,6 +20,8 @@ logged = False
 
 @app.route('/home', methods=['GET', 'POST'])
 def buscar():
+    registros = get_history_from_reabilitacao.select_data()
+    print(registros)
     if not logged:
         return redirect('/error')
     if request.method == 'POST':
@@ -31,7 +32,7 @@ def buscar():
             return redirect('/alterar_reabilitacao')
         elif 'imprimir' in request.form:
             return redirect('/imprimir')
-    return render_template('aiuka.html')
+    return render_template('aiuka.html', value=registros, len=len(registros))
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -138,7 +139,7 @@ def necro():
     if not logged:
         return redirect('/error')
     if request.method == 'POST':
-        values = {'petro_ex': None, 'petro' : None,'ectoparasitase': None, 'sexo': None, 'traq': None,
+        values = {'petro_ex': None, 'petro': None,'ectoparasitase': None, 'sexo': None, 'traq': None,
                   'alteracoes_traq': None, 'formol_traq': None, 'congel_traq': None, 'fotos_traq': None, 'saco_ae': None,
                   'normal_saco_ae': None, 'alteracoes_saco_ae': None, 'formol_saco_ae': None, 'congel_saco_ae': None,
                   'fotos_saco_ae': None, 'pulmoes': None, 'normal_pulmoes': None, 'alteracoes_pulmoes': None, 'formol_pulmoes': None,
@@ -282,7 +283,10 @@ def print_necropsia():
 @app.route('/error', methods=['GET', 'POST'])
 def error():
     if request.method == 'POST':
-        return redirect('/')
+        if not logged:
+            return redirect('/')
+        else:
+            return redirect('/home')
     return render_template('error.html')
 
 
@@ -356,10 +360,13 @@ def alter_reabilitacao():
             delete_from_reabilitacao.delete_data(registro)
             delete_from_reabilitacao_sp.delete_data(registro)
             delete_from_reabilitacao_tp.delete_data(registro)
+            keep_id = registro.split('/')[1]
+            print(keep_id)
+            values['re'] = "/" + keep_id
             insert_into_reabilitacao.insert_data(values)
             insert_into_reabilitacao_sp.insert_data(values)
             insert_into_reabilitacao_tp.insert_data(values)
-            return redirect('../')
+            return redirect('../home')
 
         return render_template('alter_reabilitacao.html', value=get_data_from_reabilitacao.select_data(registro),
                                value_sp=get_data_from_reabilitacao_sp.select_data(registro),
